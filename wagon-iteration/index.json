@@ -1,0 +1,52 @@
+{
+  "title": "Wagon iterations",
+  "description": "Day 3 of data pipelines",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+        "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "MlFlow",
+        "text": "step1.md"
+      },
+      {
+        "title": "NA",
+        "text": "step2.md"
+      },
+      {
+        "title": "NA",
+        "text": "step3.md"
+      },
+      {
+        "title": "NA",
+        "text": "step4.md"
+      },
+      {
+        "title": "NA",
+        "text": "step5.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+          {
+            "file": "app.py",
+            "target": "~/"
+          }
+        ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "python:3.8"
+  }
+}

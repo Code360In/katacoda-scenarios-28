@@ -1,0 +1,56 @@
+{
+  "title": "Wagon Pipelines",
+  "description": "Day 2  of Data Pipelines",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+        "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "Recap",
+        "text": "recap.md"
+      },
+      {
+        "title": "Train a model and save it to disk",
+        "text": "step1.md"
+      },
+      {
+        "title": "Make predictions with a saved model",
+        "text": "step2.md"
+      },
+      {
+        "title": "Data Pipelines",
+        "text": "step3.md"
+      },
+      {
+        "title": "Feature Engineering",
+        "text": "step4.md"
+      },
+      {
+        "title": "Custom Transformer",
+        "text": "step5.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+          {
+            "file": "app.py",
+            "target": "~/"
+          }
+        ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "python:3.8"
+  }
+}
