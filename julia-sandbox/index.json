@@ -24,12 +24,12 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": [{ "file": "assets/*", "target": "/root/julia" }]
+      "client": [{ "file": "assets/*", "target": "/root/julia/" }]
     }
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root"
+    "uieditorpath": "/root/julia"
   },
   "backend": {
     "imageid": "ubuntu1804"
