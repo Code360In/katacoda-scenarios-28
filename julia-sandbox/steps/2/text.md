@@ -1,19 +1,7 @@
-# Julia Sandbox 💖 
+# Julia Sandbox 💖
 
-## Launch the REPL
+## Inspect the code file
 
-`julia`{{execute}}
-
-## Get into the Package Manager
-
-`]`{{execute}}
-
-`add Airtable`{{execute}}
+`hello.jl`{{open}}
 
 Click within the terminal window and type backspace to exit the package manager
-
-## Back to the Julia command prompt
-
-```
-println("hello Julia")
-```{{execute}}
