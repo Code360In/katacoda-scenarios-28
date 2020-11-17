@@ -29,7 +29,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/julia"
+    "uieditorpath": "/root"
   },
   "backend": {
     "imageid": "ubuntu1804"
