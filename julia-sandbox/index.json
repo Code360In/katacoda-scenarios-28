@@ -10,6 +10,10 @@
         "text": "steps/1/text.md",
         "verify": "steps/1/verify.sh",
         "answer": "steps/1/answer.md"
+      },
+      {
+        "title": "Julia program file",
+        "text": "steps/2/text.md"
       }
     ],
     "intro": {
