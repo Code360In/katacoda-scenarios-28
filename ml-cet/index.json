@@ -1,6 +1,6 @@
 {
-  "title": "ML CET",
-  "description": "Sanbox for our ML CET learning group",
+  "title": "Wagon iterations",
+  "description": "Day 3 of data pipelines",
   "difficulty": "Beginner",
   "time": "1 hour",
   "details": {
@@ -10,7 +10,7 @@
     },
     "steps": [
       {
-        "title": "python-setup",
+        "title": "MlFlow",
         "text": "step1.md"
       }
     ],
@@ -20,7 +20,7 @@
     "assets": {
       "client": [
         {
-          "file": "koans/about_asserts.py",
+          "file": "app.py",
           "target": "~/"
         }
       ]

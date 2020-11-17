@@ -1,7 +1,7 @@
-# Machine Learning Study group
+# Data Pipelines
 
 ## Prerequisites that were installed
 
 ```
-# none yet
+# none
 ```{{execute}}
