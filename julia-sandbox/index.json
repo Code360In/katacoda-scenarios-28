@@ -7,7 +7,9 @@
     "steps": [
       {
         "title": "Julia REPL",
-        "text": "steps/1/text.md"
+        "text": "steps/1/text.md",
+        "verify": "steps/1/verify.sh",
+        "answer": "steps/1/answer.md"
       }
     ],
     "intro": {
