@@ -24,9 +24,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [
-        { "file": "assets/hello.jl", "target": "/root/julia/hello.jl" }
-      ]
+      "client": [{ "file": "assets/*", "target": "/root/julia" }]
     }
   },
   "environment": {
