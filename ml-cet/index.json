@@ -1,0 +1,36 @@
+{
+  "title": "ML CET",
+  "description": "Sanbox for our ML CET learning group",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "python-setup",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "koans/about_asserts.py",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "python:3.8"
+  }
+}
