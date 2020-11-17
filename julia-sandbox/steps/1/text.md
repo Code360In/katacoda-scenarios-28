@@ -8,9 +8,9 @@
 
 `]`{{execute}}
 
-`add Distributions`{{execute}}
+`add Test`{{execute}}
 
-`rm Distributions`{{execute}}
+`rm Test`{{execute}}
 
 ## Escape the Package Manager
 
