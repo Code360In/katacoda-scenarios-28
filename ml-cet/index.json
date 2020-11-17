@@ -1,6 +1,6 @@
 {
-  "title": "Wagon iterations",
-  "description": "Day 3 of data pipelines",
+  "title": "ML CET",
+  "description": "Sandbox for machine learnign",
   "difficulty": "Beginner",
   "time": "1 hour",
   "details": {
@@ -10,7 +10,7 @@
     },
     "steps": [
       {
-        "title": "MlFlow",
+        "title": "setup",
         "text": "step1.md"
       }
     ],

@@ -1,347 +1,120 @@
-# Iterations
-
-## Prerequisites
-
-```
-pip install mlflow
-pip install category_encoders
-pip install pygeohash
-pip install memoized_property
-clear
-```{{execute}}
-
-# 1. Running it on localhost
-
-```
-mkdir mlflow && cd mlflow
-touch localhost.py
-python localhost.py
-```{{execute}}
-
-
-```
-mlflow ui
-```{{execute}}
-
-=> problem accessing localhost in Kataconda.
-
-- run `mlflow ui` on my laptop's command line.
-- Tunnel it to a public address.
-
-```
-./ngrok http 5000
+```scrap
+source: https://www.practicepython.org/exercise/2014/01/29/01-character-input.html
+recentness: 2020-11
 ```
 
-# console
+![](/assets/img/logo.png)
 
-```
-[2020-06-06 10:46:51 +0200][4980] [INFO] Starting gunicorn 20.0.4
-[2020-06-06 10:46:51 +0200][4980] [INFO] Listening at: http://127.0.0.1:5000 (4980)
-[2020-06-06 10:46:51 +0200][4980] [INFO] Using worker: sync
-[2020-06-06 10:46:51 +0200][4983] [INFO] Booting worker with pid: 4983
-```
-
-In order to see the results of the tracking, go to http://127.0.0.1:5000
-
-Render port 8500: https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/
-
-```python
+# Practice Python
 
 
-
-import mlflow
-from mlflow.tracking import MlflowClient
-
-# MLFLOW_URI = "http://35.210.166.253:5000"
-# MLFLOW_URI = "http://127.0.0.1:5000"
-MLFLOW_URI = "http://f510c1729635.ngrok.io"
-
-myname="widged"
-EXPERIMENT_NAME = f"TaxifareModel_{myname}"
-mlflow.set_tracking_uri(MLFLOW_URI)
-mlflow_client= MlflowClient()
-
-experiment_id = 0
-# Create the resource.
-# If exception is raised because a resource of that name already exists
-#      mlflow.exceptions.RestException: RESOURCE_ALREADY_EXISTS: Experiment 'TaxifareModel_widged' already exists.
-# recover the id of the experiment of that name
-try:
-    experiment_id = mlflow_client.create_experiment(EXPERIMENT_NAME)
-except BaseException:
-    experiment_id = mlflow_client.get_experiment_by_name(EXPERIMENT_NAME).experiment_id
-
-print(experiment_id)
-
-for model in ["linear", "Randomforest"]:
-    run = mlflow_client.create_run(experiment_id)
-    mlflow_client.log_metric(run.info.run_id, "rmse", 1.5)
-    mlflow_client.log_param(run.info.run_id, "model", model)
-
-```{{copy}}
+## Beginner Python exercises
 
 
+# Character Input ![](/assets/img/chili-liz-20x20.png)
 
+_input strings types int_
 
+Calibrating the exercises to the audience is going to be a challenging task, so I ask you to bear with me if the exercises are too easy or too hard. Every week there will be a poll you can click on to discuss whether the exercise is too easy or too hard and hopefully in a few weeks, I’ll get the level right. Let’s get to it! I will start with the exercise and include a discussion later, in case you want the extra challenge.
 
-# 2. Running it on a shared host
+## Exercise 1 (and [Solution](/solution/2014/02/05/01-character-input-solutions.html))
 
-```
-touch sharedhost.py
-python sharedhost.py
-```{{execute}}
+Create a program that asks the user to enter their name and their age. Print out a message addressed to them that tells them the year that they will turn 100 years old.
 
-MLflow server: [https://mlflow.lewagon.co/](https://mlflow.lewagon.co/)
+Extras:
 
+1.  Add on to the previous program by asking the user for another number and printing out that many copies of the previous message. (_Hint: [order of operations](http://www.mathsisfun.com/operation-order-pemdas.html) exists in Python_)
+2.  Print out that many copies of the previous message on separate lines. (_Hint: the string `"\n` is the same as pressing the ENTER button_)
 
-```python
+## Discussion
 
-mlflow.set_tracking_uri("https://mlflow.lewagon.co/")
-EXPERIMENT_NAME = "[BE] [Belgium] [widged] TaxifareModel_0.01"
-mlflow_client= MlflowClient()
+Concepts for this week:
 
-```{{copy}}
+*   Getting user input
+*   Manipulating strings (a few ways)
 
+### User input in Python
 
-# Class Trainer
+To get user input in Python (3), the command you use is [`input()`](http://docs.python.org/3.3/library/functions.html?highlight=input#input). Store the result in a variable, and use it to your heart’s content. Remember that the result you get from the user will be a string, even if they enter a number.
 
-Simply creating the class doing nothing for now.
+For example,
 
-```
-touch trainer.py
-python trainer.py
-```{{execute}}
-
-
-```python
-class Trainer(object):
-
-    def __init__(self, X, y, **kwargs):
-        self.pipeline = None
-        self.kwargs = kwargs
-        self.dist = self.kwargs.get("distance_type", "euclidian")
-        self.X_train, self.X_val, self.y_train, self.y_val = \
-            train_test_split(X, y, test_size=0.15)
-        self.nrows = self.X_train.shape[0]
-
-    def get_estimator(self):
-        estimator = self.kwargs.get("estimator", "RandomForest")
-        if estimator == "RandomForest":
-            model = RandomForestRegressor()
-        return model
-
-    def set_pipeline(self):
-        # Define feature engineering pipeline blocks here
-        pipe_tf = make_pipeline(TimeEncoder(),
-                                OneHotEncoder())
-        pipe_dist = make_pipeline(DistTransformer(distance_type=self.dist),
-                                      StandardScaler())
-        pipe_d2center = make_pipeline(DistToCenter(),
-                                      StandardScaler())
-
-        # Define default feature engineering blocs
-        distance_columns = list(DIST_ARGS.values())
-        feateng_blocks = [
-            ('distance', pipe_dist, distance_columns),
-            ('time_features', pipe_tf, ['pickup_datetime']),
-            ('distance_to_center', pipe_d2center, distance_columns)]
-
-        features_encoder = ColumnTransformer(feateng_blocks,
-                                             n_jobs=None,
-                                             remainder="drop")
-
-        regressor = self.get_estimator()
-
-        self.pipeline = Pipeline(steps=[
-                    ('features', features_encoder),
-                    ('rgs', regressor)])
-
-    def train(self):
-        self.set_pipeline()
-        self.pipeline.fit(self.X_train, self.y_train)
-
-    def evaluate(self):
-        rmse_train = self.compute_rmse(self.X_train, self.y_train)
-        rmse_val = self.compute_rmse(self.X_val, self.y_val, show=True)
-        output_print = f"rmse train: {rmse_train} || rmse val: {rmse_val}"
-        print(colored(output_print, "blue"))
-
-    def compute_rmse(self, X_test, y_test, show=False):
-        y_pred = self.pipeline.predict(X_test)
-        rmse = compute_rmse(y_pred, y_test)
-        return round(rmse, 3)
-
-    def save_model(self):
-        """Save the model into a .joblib format"""
-        joblib.dump(self.pipeline, 'model.joblib')
-        print(colored("model.joblib saved locally", "green"))
-
-    ## Params
-    params = dict(
-        estimator='RandomForest',
-        distance_type='haversine',
-    )
-
-    trainer = Trainer(X, y, **params)
-    trainer.train()
-    trainer.evaluate()
-    trainer.save_model()
-
-```{{copy}}
-
-# Memoization
-
-Persist information about the result for a (@memoized) function call and its parameters.
-If there is later another call to the function with the exact same paramters, it will return the stored result without attempting to run the function again.
-
-If any parameter is different, it will run the function and persist the association between function with parameters and result
-
-```
-touch memoized.py
-python memoized.py
-```{{execute}}
-
-
-```python
-pip install memoized_property
-```{{execute}}
-
-## Non memoized car
-
+```js
+name = input("Give me your name: ")
+print("Your name is " + name)
 ```
 
-from memoized_property import memoized_property
-from random import random
+What this will print in the terminal (or the shell, whatever you are running Python in) will be:
 
-class Car():
-    def get_random_value(self):
-        return random()
-
-print('----NOT memoized----')
-car = Car()
-print('non memoized calls differ:')
-print(car.get_random_value())
-print(car.get_random_value())
-
-car2 = Car()
-print('non memoized calls differ:')
-print(car2.get_random_value())
-print(car2.get_random_value())
-
-```{{copy}}
-
-## Memoized car
-
-
+```js
+>>> Give me your name: Michele
+Your name is Michele
 ```
 
-from memoized_property import memoized_property
-from random import random
+What happens at the end of `input()` is that it waits for the user to type something and press ENTER. Only after the user presses ENTER does the program continue.
 
+### Manipulating strings (a few ways)
 
-class MemoizedCar():
-    @memoized_property
-    def get_random_value(self):
-        return random()
+What you get from the `input()` function is a string. What can you do with it?
 
-print('----memoized----')
-car = MemoizedCar()
-print('memoized property return the same value:')
-print(car.get_random_value)
-print(car.get_random_value)
+First: Make the string into a number. Let’s say you are 100% positive that the user entered a number. You can turn the string into an integer with the function [`int()`](http://docs.python.org/3.3/library/functions.html#int). (In a later exercise or two or three there will be questions about what to do when the user does NOT enter a number and you try to do this; for now don’t worry about that problem). Here is what this looks like:
 
-car2 = MemoizedCar()
-print('memoized property return the same value:')
-print(car2.get_random_value)
-print(car2.get_random_value)
-
-```{{copy}}
-
-## Manually  persisting value across calls
-
-Singleton Pattern
-
+```js
+age = input("Enter your age: ")
+age = int(age)
 ```
-class SingletonCar():
 
-    def __init__(self):
-        self.random = None
+(or, if you want to be more compact with your code)
 
-    def get_random_value(self):
-        #if not hasattr(self, 'random'):
-        if self.random == None:
-            self.random = random()
-        return self.random
-
-print('----singleton pattern----')
-car = SingletonCar()
-print('all calls return the same value:')
-print(car.get_random_value())
-print(car.get_random_value())
-
-car2 = SingletonCar()
-print('all calls return the same value:')
-print(car2.get_random_value())
-print(car2.get_random_value())
-```{{copy}}
-
-
-## All together! Memoized trainer
-
+```js
+age = int(input("Enter your age: ")) 
 ```
-touch memoized_trainer.py
-python memoized_trainer.py
-```{{execute}}
 
+In both cases, `age` will hold a variable that is an integer, and now you can do math with it.
 
+(Note, you can also turn integers into strings exactly in the opposite way, using the [`str()`](http://docs.python.org/3.3/library/functions.html#str) function)
+
+Second: Do math with strings. What do I mean by that? I mean, if I want to combine (**concatenate** is the computer science word for this) strings, all I need to do is add them:
+
+```js
+ print("Were" + "wolf")
+print("Door" + "man")
+print("4" + "chan")
+print(str(4) + "chan")
 ```
-from memoized_property import memoized_property
 
-import mlflow
-from mlflow.tracking import MlflowClient
+The same works for multiplication:
 
-class Trainer():
+```js
+print(4 * "test")
+```
 
-    MLFLOW_URI = "https://mlflow.lewagon.co/"
+but division and subtraction do not work like this. In terms of multiplication, the idea of multiplyling two strings together is not well-defined. What does it mean to multiply two strings in the first place? However, it makes sense in a way to specify multiplying a string by a number - just repeat that string that number of times. Try this in your own program with all the arithmetic operations with numbers and strings - the best way to get a feel for what works and what doesn’t is to try it!
 
-    def __init__(self, experiment_name):
-        self.experiment_name = experiment_name
+## Happy coding!
 
-    @memoized_property
-    def mlflow_client(self):
-        mlflow.set_tracking_uri(self.MLFLOW_URI)
-        return MlflowClient()
+Forgot how to [submit exercises](/about/)?
 
-    @memoized_property
-    def mlflow_experiment_id(self):
-        try:
-            return self.mlflow_client \
-                .create_experiment(self.experiment_name)
-        except BaseException:
-            return self.mlflow_client \
-                .get_experiment_by_name(self.experiment_name).experiment_id
+Loading...
 
-    def mlflow_create_run(self):
-        self.mlflow_run = self.mlflow_client \
-            .create_run(self.mlflow_experiment_id)
+## Share the fun!
 
-    def mlflow_log_param(self, key, value):
-        self.mlflow_client \
-            .log_param(self.mlflow_run.info.run_id, key, value)
+[« Previous exercise](/exercise/2017/04/02/36-birthday-plots.html) [Next exercise »](/exercise/2014/02/05/02-odd-or-even.html)
 
-    def mlflow_log_metric(self, key, value):
-        self.mlflow_client \
-            .log_metric(self.mlflow_run.info.run_id, key, value)
+  
 
-    def train(self):
+[![](//a.impactradius-go.com/display-ad/3944-230400)](//treehouse.7eer.net/c/348966/230400/3944)![](//treehouse.7eer.net/i/348966/230400/3944)
 
-        for model in ["linear", "Randomforest"]:
-            self.mlflow_create_run()
-            self.mlflow_log_metric("rmse", 4.5)
-            self.mlflow_log_param("model", model)
+[![](//a.impactradius-go.com/display-ad/3944-234096)](//treehouse.7eer.net/c/348966/234096/3944)![](//treehouse.7eer.net/i/348966/234096/3944)
 
-trainer = Trainer("[BE][bruxelles] [widged] DE D3 model_experiment 6")
-trainer.train()
+var disqus\_shortname = 'practicepython'; /\* \* \* DON'T EDIT BELOW THIS LINE \* \* \*/ (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus\_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')\[0\] || document.getElementsByTagName('body')\[0\]).appendChild(dsq); })();
 
-```{{copy}}
+Please enable JavaScript to view the [comments powered by Disqus.](http://disqus.com/?ref_noscript)
 
+[comments powered by Disqus](http://disqus.com)
+
+_Copyright Michele Pratusevich, 2014-2017._
+
+[_Advertising disclosure_](/disclosure.html)
+
+(adsbygoogle = window.adsbygoogle || \[\]).push({});
