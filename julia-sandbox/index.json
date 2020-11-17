@@ -1,19 +1,13 @@
 {
-  "title": "Julia Sandbox",
-  "description": "Julia Sandbox",
+  "title": "Julia Airtable",
+  "description": "Julia interacting with airtable",
   "difficulty": "Beginner",
   "time": "10 minutes",
   "details": {
     "steps": [
       {
         "title": "Julia REPL",
-        "text": "steps/1/text.md",
-        "verify": "steps/1/verify.sh",
-        "answer": "steps/1/answer.md"
-      },
-      {
-        "title": "Julia program file",
-        "text": "steps/2/text.md"
+        "text": "steps/1/text.md"
       }
     ],
     "intro": {
@@ -22,19 +16,10 @@
     },
     "finish": {
       "text": "finish.md"
-    },
-    "assets": {
-      "client": [
-        {
-          "file": "code.jl",
-          "target": "~/"
-        }
-      ]
     }
   },
   "environment": {
-    "hideintro": false,
-    "uilayout": "editor-terminal"
+    "uilayout": "terminal"
   },
   "backend": {
     "imageid": "ubuntu1804"
