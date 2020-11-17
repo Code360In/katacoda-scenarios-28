@@ -1,4 +1,4 @@
-# Julia Sandbox 💖 
+# Julia Sandbox 💖
 
 ## Launch the REPL
 
@@ -8,12 +8,14 @@
 
 `]`{{execute}}
 
-`add Airtable`{{execute}}
+`add Distributions`{{execute}}
+
+`rm Distributions`{{execute}}
+
+## Escape the Package Manager
 
 Click within the terminal window and type backspace to exit the package manager
 
-## Back to the Julia command prompt
+## Escape the REPL
 
-```
-println("hello Julia")
-```{{execute}}
+`exit()`{{execute}}

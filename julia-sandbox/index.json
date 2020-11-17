@@ -6,8 +6,14 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
-        "text": "step1.md"
+        "title": "Julia REPL",
+        "text": "steps/1/text.md",
+        "verify": "steps/1/verify.sh",
+        "answer": "steps/1/answer.md"
+      },
+      {
+        "title": "Julia program file",
+        "text": "steps/2/text.md"
       }
     ],
     "intro": {
