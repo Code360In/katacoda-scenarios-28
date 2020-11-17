@@ -16,10 +16,19 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "hello.jl",
+          "target": "~/"
+        }
+      ]
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "hideintro": false,
+    "uilayout": "editor-terminal"
   },
   "backend": {
     "imageid": "ubuntu1804"
