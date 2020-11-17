@@ -22,10 +22,14 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [{ "file": "assets/*", "target": "/root/julia" }]
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/julia"
   },
   "backend": {
     "imageid": "ubuntu1804"
