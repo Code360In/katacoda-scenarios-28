@@ -24,7 +24,13 @@
       "text": "finish.md"
     },
     "assets": {
-      "client": [{ "file": "assets/*", "target": "/root/julia" }]
+      "client": [
+        {
+          "file": "assets/hello.jl",
+          "target": "~/",
+          "chmod": "+x"
+        }
+      ]
     }
   },
   "environment": {
