@@ -26,9 +26,9 @@
     "assets": {
       "client": [
         {
-          "file": "hello.jl",
-          "target": "~/",
-          "chmod": "+x"
+          "file": "*",
+          "target": "~/julia",
+          "chmod": "+r"
         }
       ]
     }
