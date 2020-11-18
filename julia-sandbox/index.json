@@ -35,7 +35,7 @@
     }
   },
   "environment": {
-    "uilayout": "vscode",
+    "uilayout": "editor-terminal",
     "uieditorpath": "julia",
     "uimessage1": "welcome!"
   },
