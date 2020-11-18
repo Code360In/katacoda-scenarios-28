@@ -1,3 +1,4 @@
+#!/bin/bash
 # do some magic
 clear
 pip install s3fs
