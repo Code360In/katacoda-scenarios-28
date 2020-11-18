@@ -1,6 +1,6 @@
 {
   "title": "ML CET",
-  "description": "Sandbox for machine learnign",
+  "description": "Sandbox for machine learning",
   "difficulty": "Beginner",
   "time": "1 hour",
   "details": {
@@ -11,7 +11,7 @@
     "steps": [
       {
         "title": "setup",
-        "text": "step1.md"
+        "text": "steps/1/step1.md"
       }
     ],
     "finish": {
