@@ -39,7 +39,7 @@
     "uimessage1": "welcome!",
     "terminals": [
       {
-        "name": "Terminal 2",
+        "name": "Terminal",
         "command": "cd ~/julia"
       }
     ]
