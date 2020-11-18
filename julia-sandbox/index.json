@@ -35,7 +35,6 @@
   },
   "environment": {
     "uilayout": "vscode",
-    "showdashboard": true,
     "uieditorpath": "~/julia",
     "uimessage1": "welcome!"
   },
