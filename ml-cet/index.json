@@ -57,7 +57,7 @@
       "client": [
         {
           "file": "01_Fundamentals/*",
-          "target": "~/01_Fundamentals",
+          "target": "~/sandbox/01_Fundamentals",
           "chmod": "+r"
         }
       ]
