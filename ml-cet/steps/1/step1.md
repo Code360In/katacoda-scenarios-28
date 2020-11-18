@@ -4,11 +4,12 @@
 
 In [ ]:
 
-````python
+```python
 # add two integers
 2 + 2
 ```{{execute}}
 
+xxx
 
 In [ ]:
 
@@ -599,5 +600,4 @@ if my_pet in authorized_pets:
     print("Congratulations, your {} is welcome here!".format(my_pet))
 else:
     print("nSorry your {} is NOT ACCEPTED".format(my_pet))
-
-````
+```
