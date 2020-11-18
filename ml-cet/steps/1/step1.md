@@ -1,52 +1,52 @@
-```scrap
+````scrap
 source: 1_python_intro
 recentness: 2020-11
 ```{{execute}}
   # Python for Data Science - session 2[¶](#Python-for-Data-Science---session-2)
 
-### 1\. Variables and math in Python[¶](#1.-Variables-and-math-in-Python)
+### 1. Variables and math in Python[¶](#1.-Variables-and-math-in-Python)
 
 #### 1.1 Math operators[¶](#1.1-Math-operators)
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# add two integers
+# add two integers
 2 + 2
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# multiply two integers
-2 \* 2
+# multiply two integers
+2 * 2
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# spaces don't matter here, but keep them consistent (PEP8 good practice)
-2\*3   +   10
+# spaces don't matter here, but keep them consistent (PEP8 good practice)
+2*3   +   10
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# divide two integers
+# divide two integers
 6 / 3
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# raise 2 to the 4th power
-2 \*\* 4
+# raise 2 to the 4th power
+2 ** 4
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# the mod function returns the remainder after division. Useful to check divisibility.
+# the mod function returns the remainder after division. Useful to check divisibility.
 10 % 3
 
 ```{{execute}}
@@ -55,84 +55,84 @@ In \[ \]:
 
 #### 1.2 Working with variables[¶](#1.2-Working-with-variables)
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# variables, such as x here, contain values and their values can vary
-x \= 5
+# variables, such as x here, contain values and their values can vary
+x = 5
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# to inspect a value, just call it
+# to inspect a value, just call it
 x
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# you can perform calculations on variables
+# you can perform calculations on variables
 x + 3
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# what's the value of x now?
+# what's the value of x now?
 x
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# to update the value of a variable, you have to do assignment again
-x \= x + 3
+# to update the value of a variable, you have to do assignment again
+x = x + 3
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# now what's the value of x?
+# now what's the value of x?
 x
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# create a new variable y from a calculation involving x
-y \= x + 2
+# create a new variable y from a calculation involving x
+y = x + 2
 y
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# calling two variables only displays the last one
+# calling two variables only displays the last one
 x
 y
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# use the print() function to output value(s) to the console
+# use the print() function to output value(s) to the console
 print(x)
 print(y)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# separate two values by commas to output on the same line
+# separate two values by commas to output on the same line
 print(x,y)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# you can also print the output of an expression
-print(x \* y)
+# you can also print the output of an expression
+print(x * y)
 
 ```{{execute}}
 NOTE: Use valid variable names!
@@ -146,217 +146,217 @@ NOTE: Use valid variable names!
 
 #### 1.3 Getting help and using tab complete[¶](#1.3-Getting-help-and-using-tab-complete)
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# get iPython help on an expression by putting ? after it
+# get iPython help on an expression by putting ? after it
 len?
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# use tab complete to fill in the rest of statements, functions, methods
+# use tab complete to fill in the rest of statements, functions, methods
 prin
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# also use it to complete variable or functions that you defined yourself
-name\_of\_course \= "Python for Data Science"
+# also use it to complete variable or functions that you defined yourself
+name_of_course = "Python for Data Science"
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-name\_of\_cou
+name_of_cou
 
 ```{{execute}}
-### 2\. Basic data types: int, float, string[¶](#2.-Basic-data-types:-int,-float,-string)
+### 2. Basic data types: int, float, string[¶](#2.-Basic-data-types:-int,-float,-string)
 
 These object types are the most basic building blocks when handling data in Python. Note that Python is an object-oriented language. Each object has a type, which determines what can be done with it. For instance, an object of type _int_ can be added to another _int_.
 
 In compiled languages like C++, the programmer has to declare the type of any variable before using it. By contrast, Python will **infer the type of variable you want** at run-time. It does this based on what characters you pass, whether they are surrounded by quote marks or brackets. This keeps the syntax much more 'natural' - but take care to learn the rules your Python interpreter applies.
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# integers are whole numbers
-x \= 10
+# integers are whole numbers
+x = 10
 type(x)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# floats are floating point (or decimal) numbers
-y \= 4.25
+# floats are floating point (or decimal) numbers
+y = 4.25
 type(y)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# strings are sets of characters in a row, denoted by single or double quotes
-course\_name \= 'Python for Data Science'
+# strings are sets of characters in a row, denoted by single or double quotes
+course_name = 'Python for Data Science'
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# another data type is a Boolean, which has the possible values True or False
+# another data type is a Boolean, which has the possible values True or False
 
-my\_enrollment\_status \= True
-type(my\_enrollment\_status)
+my_enrollment_status = True
+type(my_enrollment_status)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# use isinstance to check an object's type
-isinstance(course\_name, int)
+# use isinstance to check an object's type
+isinstance(course_name, int)
 
 ```{{execute}}
 #### 2.1. Manipulating strings[¶](#2.1.-Manipulating-strings)
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# this is a string. It can be assigned to a variable. 
-mystring \= 'I am a string. Humans can interpret me easily'
+# this is a string. It can be assigned to a variable.
+mystring = 'I am a string. Humans can interpret me easily'
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
 print(mystring)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# strings can added together (concatenated)
-add\_chunk \= '. I love strings'
-mystring + add\_chunk
+# strings can added together (concatenated)
+add_chunk = '. I love strings'
+mystring + add_chunk
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# but they can't be subtracted
-mystring \- add\_chunk
+# but they can't be subtracted
+mystring - add_chunk
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# they can be repeated with \*
-add\_chunk \* 3
+# they can be repeated with *
+add_chunk * 3
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# Each object type has a set of 'methods' (ie. built-in operations) attached to it. 
-\# Access these with dot notation.
+# Each object type has a set of 'methods' (ie. built-in operations) attached to it.
+# Access these with dot notation.
 
 mystring.split('.')
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# the .replace() method is handy too. This operation can be chained for entertainment value:
+# the .replace() method is handy too. This operation can be chained for entertainment value:
 print(mystring)
 
-new\_string \= mystring.replace("I am","Dharana is").replace("string", "human").replace("Humans", "Other humans").replace("me","her")
+new_string = mystring.replace("I am","Dharana is").replace("string", "human").replace("Humans", "Other humans").replace("me","her")
 
-print(new\_string)
-print(new\_string.replace('Dharana', 'Nicholas').replace('easily','from time to time').replace(' her ',' him '))
-
-```{{execute}}
-In \[ \]:
-
-```python
-\# the built-in function len() returns the number of characters
-
-len(new\_string)
+print(new_string)
+print(new_string.replace('Dharana', 'Nicholas').replace('easily','from time to time').replace(' her ',' him '))
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# use .format() to print variables alongside strings
-\# to keep your outputs neat, you might want to limit the decimal places
+# the built-in function len() returns the number of characters
 
-print("My output: {}".format(value\_to\_print))
-print("My output: {:.3f}".format(value\_to\_print))
+len(new_string)
+
+```{{execute}}
+In [ ]:
+
+```python
+# use .format() to print variables alongside strings
+# to keep your outputs neat, you might want to limit the decimal places
+
+print("My output: {}".format(value_to_print))
+print("My output: {:.3f}".format(value_to_print))
 
 ```{{execute}}
 #### 2.2 Converting between types[¶](#2.2-Converting-between-types)
 
 Often you need to convert variables to other types, especially to make them work together. Use the _int()_, _str()_ or _float()_ functions to convert to these data types.
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# sometimes Python will change a variable's data type for you:
+# sometimes Python will change a variable's data type for you:
 
-my\_salary \= 200000
-print(my\_salary, type(my\_salary))
+my_salary = 200000
+print(my_salary, type(my_salary))
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# Division always returns a float
+# Division always returns a float
 
-daily\_rate \= my\_salary / 365
-print(daily\_rate, type(daily\_rate))
+daily_rate = my_salary / 365
+print(daily_rate, type(daily_rate))
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# be careful, changing a float to an integer lops off everything after the decimal place
-int(daily\_rate)
+# be careful, changing a float to an integer lops off everything after the decimal place
+int(daily_rate)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# you probably want to round up instead
-round(daily\_rate)
+# you probably want to round up instead
+round(daily_rate)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# you can't concatenate a string and an integer
+# you can't concatenate a string and an integer
 
-address \= "1808 H ST NW, DC"
-WB\_zip \= 20037
+address = "1808 H ST NW, DC"
+WB_zip = 20037
 
-address + " " + WB\_zip
+address + " " + WB_zip
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# instead, change the integer to a string first
-WB\_zip \= str(WB\_zip)
-type(WB\_zip)
+# instead, change the integer to a string first
+WB_zip = str(WB_zip)
+type(WB_zip)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# does it work now?
-address + " " + WB\_zip
+# does it work now?
+address + " " + WB_zip
 
 ```{{execute}}
-### 3\. Data types: lists[¶](#3.-Data-types:-lists)
+### 3. Data types: lists[¶](#3.-Data-types:-lists)
 
 Ints, floats and strings are the most basic data structures (think of them as atoms). Next, we'll look at data types that combine those atoms. Lists, tuples and dictionaries are compound data structures that group together other items.
 
@@ -367,87 +367,87 @@ Ints, floats and strings are the most basic data structures (think of them as at
 
 Lists are collections of items. To create one, put a series of items in square brackets, separated by commas. Lists can contain items of different types. They are helpful when your data has an order and may need to be changed in place.
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# create a list of strings
-weekdays \= \['monday','tuesday','wednesday','thursday','friday'\]
+# create a list of strings
+weekdays = ['monday','tuesday','wednesday','thursday','friday']
 weekdays
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# Lists are ordered collections; they are indexed starting at zero.
-\# To get an individual item, use square brackets and the appropriate index value.
-weekdays\[0\]
+# Lists are ordered collections; they are indexed starting at zero.
+# To get an individual item, use square brackets and the appropriate index value.
+weekdays[0]
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# select slices (eg. the first to the fourth item) with square bracket notation
+# select slices (eg. the first to the fourth item) with square bracket notation
 
-weekdays\[0:3\]
+weekdays[0:3]
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# check the type of items in a list
-type(weekdays\[3\])
+# check the type of items in a list
+type(weekdays[3])
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# a list is a mutable, you can change its contents in-place
-weekdays\[3\] \= 'thursday - practice Python!'
+# a list is a mutable, you can change its contents in-place
+weekdays[3] = 'thursday - practice Python!'
 weekdays
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# add an item to a list with append()
+# add an item to a list with append()
 weekdays.append('saturday')
 weekdays
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# test for a value in your list
+# test for a value in your list
 'saturday' in weekdays
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# use .remove() to clean up the weekdays list
+# use .remove() to clean up the weekdays list
 
 weekdays.remove('saturday')
 weekdays
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# concatenate two lists
-odds \= \[1,3,5\]
-evens \= \[2,4,6\]
-all\_nums \= odds + evens
-all\_nums
+# concatenate two lists
+odds = [1,3,5]
+evens = [2,4,6]
+all_nums = odds + evens
+all_nums
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# the built-in function len() also applies to lists
-len(all\_nums)
+# the built-in function len() also applies to lists
+len(all_nums)
 
 ```{{execute}}
-### 4\. Logic and control flow - quick intro[¶](#4.-Logic-and-control-flow---quick-intro)
+### 4. Logic and control flow - quick intro[¶](#4.-Logic-and-control-flow---quick-intro)
 
 Definition of **control flow**:
 
@@ -460,35 +460,35 @@ Definition: an **iterable** is an object capable of returning its members one at
 
 A **for loop** runs a block of code repeatedly "for" each item in an iterable. End the declaration with : and indent the subsidiary code.
 
-In \[ \]:
+In [ ]:
 
 ```python
-for color in \['red','green','blue'\]:
+for color in ['red','green','blue']:
     print("I love " + color)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# or characters in a string
+# or characters in a string
 for letter in 'abcd':
     print(letter.upper())
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# the range() function produces a helpful iterator
+# the range() function produces a helpful iterator
 for n in range(5):
     print("I ate {} donuts".format(n + 1))
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# a while loop allows you to move through part of an iterable until a condition is met
+# a while loop allows you to move through part of an iterable until a condition is met
 
-a \= 0
+a = 0
 while a < 5:
     print('I am small {}'.format(a))
     a += 1
@@ -501,39 +501,39 @@ We test conditions using logic operators.
 <table><thead><tr><th>Symbol</th><th>Task Performed</th></tr></thead><tbody><tr><td>==</td><td>True, if it is equal</td></tr><tr><td>!=</td><td>True, if not equal to</td></tr><tr><td>&lt;</td><td>less than</td></tr><tr><td>&lt;=</td><td>less than or equal to</td></tr><tr><td>&gt;</td><td>greater than</td></tr><tr><td>&gt;=</td><td>greater than or equal to</td></tr></tbody>
 </table>
 
-In \[ \]:
+In [ ]:
 
 ```python
-\# NOTE: We declare variables using '='
-a \= 5
-b \= 7
+# NOTE: We declare variables using '='
+a = 5
+b = 7
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# But compare them using '=='
-a \== b
+# But compare them using '=='
+a == b
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# Test whether a does not equal b
+# Test whether a does not equal b
 a != b
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# Logic expressions evaluate to True or False (datatype: Boolean)
+# Logic expressions evaluate to True or False (datatype: Boolean)
 
-test \= b \> a
+test = b > a
 
 test
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
 type(test)
@@ -545,20 +545,20 @@ My pet Python is a vegetarian. She will test whether variable 'food' is 'burger'
 
 Do this with 'if', 'elif' (else if), and 'else'.
 
-In \[ \]:
+In [ ]:
 
 ```python
-food \= 'veg'
+food = 'veg'
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-if food \== 'veg':
+if food == 'veg':
     print ('yum')
-elif food \== 'chicken':
+elif food == 'chicken':
     print ('hmm maybe')
-elif food \== 'burger':
+elif food == 'burger':
     print ('no thanks')
 else:
     pass
@@ -575,34 +575,34 @@ NOTE: Here's how the structure works:
 
 Combining loops with logic allows you to build more sophisticated code structures:
 
-In \[ \]:
+In [ ]:
 
 ```python
-days \= \['Mon','Tue','Wed','Thu','Fri','Sat','Sun'\]
+days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
 
 for day in days:
-    if day \== 'Sat':
-        location \= '--> Beach!'
-    elif day \== 'Sun':
-        location \= '--> My sofa!'
+    if day == 'Sat':
+        location = '--> Beach!'
+    elif day == 'Sun':
+        location = '--> My sofa!'
     else:
-        location \= '--> MC5-215B'
+        location = '--> MC5-215B'
     print(day, location)
 
 ```{{execute}}
-In \[ \]:
+In [ ]:
 
 ```python
-\# EXAMPLE 2: is your pet allowed?
+# EXAMPLE 2: is your pet allowed?
 
-authorized\_pets \= \['small dog', 'cat', 'hamster','budgerigar'\]
+authorized_pets = ['small dog', 'cat', 'hamster','budgerigar']
 
 print("Welcome to Nick's Apartment Block.")
-my\_pet \= input("Type your pet's breed to see if it's accepted:")
+my_pet = input("Type your pet's breed to see if it's accepted:")
 
-if my\_pet in authorized\_pets:
-    print("Congratulations, your {} is welcome here!".format(my\_pet))
+if my_pet in authorized_pets:
+    print("Congratulations, your {} is welcome here!".format(my_pet))
 else:
-    print("\\nSorry your {} is NOT ACCEPTED".format(my\_pet))
+    print("nSorry your {} is NOT ACCEPTED".format(my_pet))
 
-```{{execute}}  
+````
