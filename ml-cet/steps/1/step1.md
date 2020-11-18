@@ -7,8 +7,9 @@ In [ ]:
 ````python
 # add two integers
 2 + 2
-
 ```{{execute}}
+
+
 In [ ]:
 
 ```python
