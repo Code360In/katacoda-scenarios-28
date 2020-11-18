@@ -1,16 +1,10 @@
-````scrap
-source: 1_python_intro
-recentness: 2020-11
-```{{execute}}
-  # Python for Data Science - session 2[¶](#Python-for-Data-Science---session-2)
+### 1. Variables and math in Python
 
-### 1. Variables and math in Python[¶](#1.-Variables-and-math-in-Python)
-
-#### 1.1 Math operators[¶](#1.1-Math-operators)
+#### 1.1 Math operators
 
 In [ ]:
 
-```python
+````python
 # add two integers
 2 + 2
 
