@@ -2,9 +2,9 @@
 
 [![](http://shields.katacoda.com/katacoda/widged/count.svg)](https://www.katacoda.com/widged "Get your profile on Katacoda.com")
 
-Visit https://www.katacoda.com/widged to view the profile and interactive scenarios
+Visit [https://www.katacoda.com/widged](https://www.katacoda.com/widged) to view the profile and interactive scenarios
 
 ### Writing Scenarios
-Visit https://www.katacoda.com/docs to learn more about creating Katacoda scenarios
+Visit [https://www.katacoda.com/docs](https://www.katacoda.com/docs) to learn more about creating Katacoda scenarios
 
-For examples, visit https://github.com/katacoda/scenario-example
+For examples, visit [https://github.com/katacoda/scenario-example](https://github.com/katacoda/scenario-example)

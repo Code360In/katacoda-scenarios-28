@@ -79,7 +79,7 @@ if __name__ == "__main__":
 ```
 cd ~
 
-git clone https://github.com/PipelineAI/katacoda-notebooks
+git clone [https://github.com/PipelineAI/katacoda-notebooks](https://github.com/PipelineAI/katacoda-notebooks)
 
 cd ~/katacoda-notebooks/06_mlflow_install/
 

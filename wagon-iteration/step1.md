@@ -41,9 +41,11 @@ mlflow ui
 [2020-06-06 10:46:51 +0200][4983] [INFO] Booting worker with pid: 4983
 ```
 
-In order to see the results of the tracking, go to http://127.0.0.1:5000
+In order to see the results of the tracking, go to [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
+```
 Render port 8500: https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/
+```
 
 ```python
 
