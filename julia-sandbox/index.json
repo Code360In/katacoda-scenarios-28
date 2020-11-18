@@ -35,14 +35,8 @@
   },
   "environment": {
     "uilayout": "vscode",
-    "uieditorpath": "~/julia",
-    "uimessage1": "welcome!",
-    "terminals": [
-      {
-        "name": "Terminal",
-        "command": "cd ~/julia"
-      }
-    ]
+    "uieditorpath": "julia",
+    "uimessage1": "welcome!"
   },
   "backend": {
     "imageid": "ubuntu1804"
