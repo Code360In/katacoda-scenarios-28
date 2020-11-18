@@ -9,7 +9,6 @@ In [ ]:
 2 + 2
 ```{{execute}}
 
-xxx
 
 In [ ]:
 
