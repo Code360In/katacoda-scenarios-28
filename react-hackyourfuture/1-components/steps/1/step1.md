@@ -23,6 +23,12 @@ cd ~/sandbox/step_1/
 
 ```js
 yarn init
+```{{execute}}
+
+#### Touch
+
+
+```js
 touch index.js
 ```{{execute}}
 
@@ -42,8 +48,25 @@ yarn add nwb --dev
 }
 ```{{copy}}
 
+#### src/index.js
 
-#### Test it
+```
+import React, {Component} from 'react';
+import {render} from 'react-dom';
 
+class App extends Component {
+  render() {
+    return (<div>Hello Brussels</div>);
+  }
+}
+
+render(React.createElement(App), document.querySelector('#app'));
+```{{copy}}
+
+### Let's install our dependencies
+
+```
+yarn add react react-dom
+```{{execute}}
 
 

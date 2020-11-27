@@ -37,8 +37,7 @@
       {
         "name": "Web Application",
         "port": 3000
-      },
-      {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"}
+      }
     ],
     "uilayout": "editor-terminal",
     "uisettings": "javascript",
