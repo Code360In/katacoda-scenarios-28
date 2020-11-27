@@ -4,32 +4,33 @@
 
 [NWB @github](https://github.com/insin/nwb#readme)
 
-#### Installing it globally
+### Heading to `step_1`
 
 ```js
-yarn global add nwb
-```{{execute}}
-
-This will take a bit... sit back and relax.
-
-#### Heading to `step_1`
-
-```js
+mkdir ~/sandbox/step_1/
 cd ~/sandbox/step_1/
 ```{{execute}}
 
+
 #### Initialize a javascript `package`
 
+`yarn init`{{execute}}
 
-```js
-yarn init
-```{{execute}}
+Enter and accept all de
 
 #### Create an index.js file
 
 
 `touch index.js`{{execute}}
 
+
+#### Installing `nwb` globally
+
+```js
+yarn global add nwb
+```{{execute}}
+
+This will take a bit... sit back and relax.
 
 #### Install nwb locally
 

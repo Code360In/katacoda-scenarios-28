@@ -7,11 +7,11 @@
     "steps": [
       {
         "title": "setup",
-        "text": "steps/1/step1.md"
+        "text": "steps/1/README.md"
       },
       {
-        "title": "setup",
-        "text": "steps/2/step2.md"
+        "title": "ngrok",
+        "text": "steps/ngrok/README.md"
       }
     ],
     "intro": {
