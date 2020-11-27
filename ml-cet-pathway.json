@@ -1,0 +1,11 @@
+{
+  "title": "ML CET",
+  "description": "study group fro machine learning",
+  "courses": [
+    {
+      "course_id": "linear-algebra-for-machine-learning",
+      "title": "linear-algebra-for-machine-learning",
+      "description": "linear-algebra-for-machine-learning"
+    }
+  ]
+}

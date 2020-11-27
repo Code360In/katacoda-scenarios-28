@@ -8,8 +8,11 @@
       {
         "title": "setup",
         "text": "steps/1/step1.md"
+      },
+      {
+        "title": "setup",
+        "text": "steps/2/step2.md"
       }
-
     ],
     "intro": {
       "text": "intro.md",

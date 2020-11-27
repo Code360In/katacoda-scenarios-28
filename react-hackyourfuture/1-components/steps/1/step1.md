@@ -18,37 +18,58 @@ This will take a bit... sit back and relax.
 cd ~/sandbox/step_1/
 ```{{execute}}
 
-#### Initialize a js project
+#### Initialize a javascript `package`
 
 
 ```js
 yarn init
 ```{{execute}}
 
-#### Touch
+#### Create an index.js file
 
 
-```js
-touch index.js
-```{{execute}}
+`touch index.js`{{execute}}
 
 
 #### Install nwb locally
 
 > To use nwb's tooling in a project, install it as a devDependency and use nwb commands in package.json "scripts":
 
-```js
-yarn add nwb --dev
-```{{execute}}
+`yarn add nwb --dev`{{execute}}
 
 ```json
 "scripts": {
-  "start": "nwb serve-react-app",
-  "build": "nwb build-react-app"
+  "start": "nwb serve-react-app index.js",
+  "build": "nwb build-react-app index.js"
 }
 ```{{copy}}
 
-#### src/index.js
+This part is for my setup only, because I am on this sandbox environment.
+
+`touch nwb.config.js`{{execute}}
+
+`nwb.config.js`{{open}}
+
+
+```
+const path = require('path');
+
+module.exports = {
+  type: 'react-app',
+  devServer: {
+    compress: true,
+    disableHostCheck: true, // Required to run on katacoda
+  },
+  webpack: {
+    publicPath: ''
+  }
+};
+```{{copy}}
+
+
+## A first react component!
+
+### The code
 
 ```
 import React, {Component} from 'react';
@@ -62,6 +83,7 @@ class App extends Component {
 
 render(React.createElement(App), document.querySelector('#app'));
 ```{{copy}}
+
 
 ### Let's install our dependencies
 
