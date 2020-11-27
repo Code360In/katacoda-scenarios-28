@@ -1,0 +1,43 @@
+{
+  "title": "Hack for the future reactjs",
+  "description": "Sandbox for Reactjs",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "steps": [
+      {
+        "title": "setup",
+        "text": "steps/1/step1.md"
+      },
+      {
+        "title": "01_Fundamentals",
+        "text": "steps/01_Fundamentals/README.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "step_1/*",
+          "target": "~/sandbox/step_1",
+          "chmod": "+r"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal",
+    "uieditorpath": "sandbox",
+    "uimessage1": "welcome!"
+  },
+  "backend": {
+    "imageid": "nodejs:12"
+  }
+}

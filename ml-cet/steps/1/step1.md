@@ -139,8 +139,8 @@ prin
 name_of_course = "Python for Data Science"
 ```{{execute}}
 
-##name_of_cou
 ```python
+#name_of_cou
 ```{{execute}}
 
 
@@ -186,10 +186,7 @@ isinstance(course_name, int)
 #### this is a string. It can be assigned to a variable.
 ```python
 mystring = 'I am a string. Humans can interpret me easily'
-```{{execute}}
-
-##print(mystring)
-```python
+print(mystring)
 ```{{execute}}
 
 #### strings can added together (concatenated)
