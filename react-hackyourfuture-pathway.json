@@ -5,13 +5,13 @@
     "courses": [
       {
         "course_id": "1-components",
-        "title": "1-components",
-        "description": "1-components"
+        "title": "React Components",
+        "description": "Writing your first components with React"
       },
       {
         "course_id": "2-application",
-        "title": "2-application",
-        "description": "2-application"
+        "title": "React Applications",
+        "description": "Putting it all together to write a complete application"
       }
     ]
   }
