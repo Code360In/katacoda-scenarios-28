@@ -1,7 +1,8 @@
-# Data Pipelines
+# Getting started with React
 
 ## Prerequisites that were installed
 
-```
-# none
-```{{execute}}
+
+The following were installed as part of the setup:
+
+- [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
