@@ -3,9 +3,19 @@
   "description": "study group fro machine learning",
   "courses": [
     {
+      "course_id": "jupyter-notebook",
+      "title": "jupyter-notebook",
+      "description": "jupyter-notebook"
+    },
+    {
       "course_id": "linear-algebra-for-machine-learning",
       "title": "linear-algebra-for-machine-learning",
       "description": "linear-algebra-for-machine-learning"
+    },
+    {
+      "course_id": "ml-algo-from-scratch-python",
+      "title": "ml-algo-from-scratch-python",
+      "description": "ml-algo-from-scratch-python"
     }
   ]
 }
