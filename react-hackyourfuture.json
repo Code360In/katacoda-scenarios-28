@@ -1,0 +1,12 @@
+{
+    "title": "Hack your future course",
+    "description": "An example of creating a Katacoda Course!",
+    "icon": "fa-katacoda",
+    "courses": [
+      {
+        "course_id": "1-getting-started",
+        "title": "1-getting-started",
+        "description": "1-getting-started"
+      }    ]
+  }
+
