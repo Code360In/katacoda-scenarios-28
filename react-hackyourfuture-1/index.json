@@ -1,6 +1,6 @@
 {
-  "title": "Hack for the future reactjs",
-  "description": "Sandbox for Reactjs",
+  "title": "ML CET",
+  "description": "Sandbox for machine learning",
   "difficulty": "Beginner",
   "time": "1 hour",
   "details": {
@@ -12,6 +12,38 @@
       {
         "title": "01_Fundamentals",
         "text": "steps/01_Fundamentals/README.md"
+      },
+      {
+        "title": "02_Statistics",
+        "text": "steps/02_Statistics/README.md"
+      },
+      {
+        "title": "03_Programming",
+        "text": "steps/03_Programming/README.md"
+      },
+      {
+        "title": "04_Machine-Learning",
+        "text": "steps/04_Machine-Learning/README.md"
+      },
+      {
+        "title": "05_Text-Mining-NLP",
+        "text": "steps/05_Text-Mining-NLP/README.md"
+      },
+      {
+        "title": "06_Data-Visualization",
+        "text": "steps/06_Data-Visualization/README.md"
+      },
+      {
+        "title": "07_Big-Data",
+        "text": "steps/07_Big-Data/README.md"
+      },
+      {
+        "title": "08_Data-Ingestion",
+        "text": "steps/08_Data-Ingestion/README.md"
+      },
+      {
+        "title": "09_Data-Munging",
+        "text": "steps/09_Data-Munging/README.md"
       }
     ],
     "intro": {
@@ -24,8 +56,8 @@
     "assets": {
       "client": [
         {
-          "file": "step_1/*",
-          "target": "~/sandbox/step_1",
+          "file": "01_Fundamentals/*",
+          "target": "~/sandbox/01_Fundamentals",
           "chmod": "+r"
         }
       ]
@@ -38,6 +70,6 @@
     "uimessage1": "welcome!"
   },
   "backend": {
-    "imageid": "nodejs:12"
+    "imageid": "python:3.8"
   }
 }
