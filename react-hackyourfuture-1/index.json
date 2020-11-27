@@ -1,6 +1,6 @@
 {
-  "title": "ML CET",
-  "description": "Sandbox for machine learning",
+  "title": "React Sandbox",
+  "description": "Sandbox for reactjs",
   "difficulty": "Beginner",
   "time": "1 hour",
   "details": {
@@ -21,8 +21,8 @@
     "assets": {
       "client": [
         {
-          "file": "01_Fundamentals/*",
-          "target": "~/sandbox/01_Fundamentals",
+          "file": "step_1/*",
+          "target": "~/sandbox/step_1",
           "chmod": "+r"
         }
       ]
