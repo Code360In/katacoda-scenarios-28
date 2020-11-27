@@ -35,6 +35,6 @@
     "uimessage1": "welcome!"
   },
   "backend": {
-    "imageid": "node:14"
+    "imageid": "ubuntu1804"
   }
 }
