@@ -40,7 +40,7 @@
       },
       {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"}
     ],
-    "uilayout": "editor-iframe-split",
+    "uilayout": "editor-terminal",
     "uisettings": "javascript",
     "exclusionPatterns": [
       "._*",
