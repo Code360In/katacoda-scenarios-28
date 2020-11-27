@@ -37,9 +37,10 @@
       {
         "name": "Web Application",
         "port": 3000
-      }
+      },
+      {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com"}
     ],
-    "uilayout": "editor-iframe-split",
+    "uilayout": "vscode-iframe-split",
     "uisettings": "javascript",
     "exclusionPatterns": [
       "._*",
