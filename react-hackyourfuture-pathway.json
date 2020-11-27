@@ -4,9 +4,15 @@
     "icon": "fa-katacoda",
     "courses": [
       {
-        "course_id": "1-getting-started",
-        "title": "1-getting-started",
-        "description": "1-getting-started"
-      }    ]
+        "course_id": "1-components",
+        "title": "1-components",
+        "description": "1-components"
+      },
+      {
+        "course_id": "2-application",
+        "title": "2-application",
+        "description": "2-application"
+      }
+    ]
   }
 

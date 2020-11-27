@@ -1,0 +1,60 @@
+{
+  "title": "React Application",
+  "description": "Putting it all together to write a complete application",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "steps": [
+      {
+        "title": "setup",
+        "text": "steps/1/step1.md"
+      }
+
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "*",
+          "target": "~/sandbox",
+          "chmod": "+r"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "showdashboard": true,
+    "delayToSaveFileAfterStopTypingMilliseconds": 2000,
+    "autoFormatEnable": false,
+    "dashboards": [
+      {
+        "name": "Web Application",
+        "port": 3000
+      }
+    ],
+    "uilayout": "editor-iframe-split",
+    "uisettings": "javascript",
+    "exclusionPatterns": [
+      "._*",
+      "package.json",
+      "package-lock.json",
+      "node_modules",
+      "public*",
+      "serviceWorker*"
+    ],
+    "hideHiddenFiles": true,
+    "uieditorpath": "sandbox",
+    "uimessage1": "welcome!"
+  },
+  "backend": {
+    "imageid": "ubuntu1804",
+    "port": 3000
+  }
+}
