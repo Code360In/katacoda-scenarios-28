@@ -35,7 +35,7 @@
     "uimessage1": "welcome!"
   },
   "backend": {
-    "imageid": "node",
+    "imageid": "ubuntu1804",
     "port": 3000
   }
 }
