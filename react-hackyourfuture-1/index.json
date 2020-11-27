@@ -35,6 +35,6 @@
     "uimessage1": "welcome!"
   },
   "backend": {
-    "imageid": "python:3.8"
+    "imageid": "node:12"
   }
 }
