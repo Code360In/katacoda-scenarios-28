@@ -30,7 +30,26 @@
   },
   "environment": {
     "hideintro": false,
-    "uilayout": "editor-terminal",
+    "showdashboard": true,
+    "delayToSaveFileAfterStopTypingMilliseconds": 2000,
+    "autoFormatEnable": false,
+    "dashboards": [
+      {
+        "name": "Web Application",
+        "port": 3000
+      }
+    ],
+    "uilayout": "editor-iframe-split",
+    "uisettings": "javascript",
+    "exclusionPatterns": [
+      "._*",
+      "package.json",
+      "package-lock.json",
+      "node_modules",
+      "public*",
+      "serviceWorker*"
+    ],
+    "hideHiddenFiles": true,
     "uieditorpath": "sandbox",
     "uimessage1": "welcome!"
   },
