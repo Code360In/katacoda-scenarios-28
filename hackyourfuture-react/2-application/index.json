@@ -24,6 +24,10 @@
       {
         "title": "Automating Testing and Devops",
         "text": "steps/5-automating-devops/README.md"
+      },
+      {
+        "title": "Deploying your application",
+        "text": "steps/6-deploying/README.md"
       }
     ],
     "intro": {

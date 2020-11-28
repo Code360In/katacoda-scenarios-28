@@ -114,6 +114,9 @@ function EffectsDemoNoDependency() {
 
 [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html)
 
+[Learn React Hooks and find something to eat - Recipe App](https://alanmynah.com/blog/react-hooks-recipes)
+
 ### Recipes
 [usehooks.com](https://usehooks.com/) and the associated [github repo](https://github.com/gragland/usehooks)
 
+[React Recipes: State management with setState, useState and useReducer hooks](https://medium.com/@alicantorun/react-recipes-state-management-with-setstate-usestate-and-usereducer-573aa1377633)

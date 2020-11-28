@@ -1,6 +1,6 @@
-## Building medium to large entreprise applications
 
-### Dealing with Complexity
+
+## Dealing with Complexity
 
 Once you start writing applications that are meant to provide a service to a customer, you end up having to design a number of screens.
 
@@ -15,7 +15,7 @@ For instance
 - [Doctor appointments](https://ui8.net/tickbird/products/bdoctor-appfor-doctor-ui-kit)
 - [Grocery](https://ui8.net/ui-machines/products/g-shop-grocery-app-ui-kit)
 
-### Two challenges
+## Two challenges
 
 1/ Writing the application in a modular way. Mostly, what it means is that when you make a change somewhere in your application, it does not create unexpected changes in other parts of your application. A key concept associated with modules is the one of encapsulation.
 
@@ -36,9 +36,9 @@ In 2020, the major players are:
 - Vue Js
 - Angular JS
 
-### Important differences
+## Important differences
 
-#### 1/ Library vs Framework
+### 1/ Library vs Framework
 
 ![](https://pbs.twimg.com/media/Ej8EWXXU4AACy52?format=jpg&name=medium)
 
@@ -48,7 +48,7 @@ In 2020, the major players are:
 
 ![](https://static1.squarespace.com/static/536be213e4b0098a764a0244/t/5380e8ace4b0d3b0ecca0650/1400957100989/library_vs_framework.png)
 
-#### 2/ HTML in Code vs Code in HTML
+### 2/ HTML in Code vs Code in HTML
 
 ![](http://clients.widged.com/hackyourfuture/assets/jsx-vs-template.png)
 
@@ -58,7 +58,7 @@ Angular and Vue: Templates, Bindings, and Directives
 
 ![](http://clients.widged.com/hackyourfuture/assets/directives.png)
 
-### How do we get to pick one!?
+## How do we get to pick one!?
 
 1/ Popularity trends
 
@@ -78,7 +78,7 @@ However Vue saw a mammoth rise in popularity since 2019.
 
 ![](https://www.sphinx-solution.com/blog/wp-content/uploads/2019/05/angular-react-vue_table.jpg)
 
-### We are going for React!
+## We are going for React!
 
 But by all means, make your own mind by reading some in-depth reviews
 

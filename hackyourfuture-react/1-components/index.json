@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Dealing with complexity",
+        "title": "Building medium to large entreprise applications",
         "text": "steps/1-complexity/README.md"
       },
       {
@@ -24,6 +24,10 @@
       {
         "title": "Doing it in style",
         "text": "steps/5-styled/README.md"
+      },
+      {
+        "title": "Layout",
+        "text": "steps/5b-layout/README.md"
       },
       {
         "title": "React Lifecycle",
@@ -65,6 +69,12 @@
         "name": "Web Application",
         "port": 3000
       }
+      {
+        "name": "1-HelloBrussels",
+        "url": "https://repl.it/@widged/1-HelloBrussels"
+      }
+
+      
     ],
     "uilayout": "editor-terminal",
     "uisettings": "javascript",
