@@ -76,13 +76,11 @@
       {
         "name": "Web Application",
         "port": 3000
-      }
+      },
       {
         "name": "1-HelloBrussels",
         "url": "https://repl.it/@widged/1-HelloBrussels"
       }
-
-      
     ],
     "uilayout": "editor-terminal",
     "uisettings": "javascript",
