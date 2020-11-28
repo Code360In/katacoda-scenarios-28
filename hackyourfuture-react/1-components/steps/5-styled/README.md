@@ -4,7 +4,9 @@ Time to use react for doing something useful! For these two sessions on React, w
 
 For writing a recipe app, we will need some data!
 
-[](https://github.com/tabatkins/recipe-db)
+[recipe-db](https://github.com/tabatkins/recipe-db)
+
+[openrecip.es](http://openrecipes.s3.amazonaws.com/openrecipes.txt)
 
 If you feel like doing your styling from scratch, here is some inspiration
 

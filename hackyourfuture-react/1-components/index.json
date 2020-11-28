@@ -79,7 +79,7 @@
       },
       {
         "name": "1-HelloBrussels",
-        "url": "https://repl.it/@widged/1-HelloBrussels"
+        "href": "https://repl.it/@widged/1-HelloBrussels"
       }
     ],
     "uilayout": "editor-terminal",
