@@ -19,7 +19,15 @@
       },
       {
         "title": "First component",
-        "text": "steps/4-nwb-component/README.md"
+        "text": "steps/3a-nwb-component/README.md"
+      },
+      {
+        "title": "React sandboxes",
+        "text": "steps/3b-sandboxes/README.md"
+      },
+      {
+        "title": "Repl.it",
+        "text": "steps/3c-repl-it/README.md"
       },
       {
         "title": "Doing it in style",
