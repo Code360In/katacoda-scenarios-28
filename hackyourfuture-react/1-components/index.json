@@ -22,8 +22,8 @@
         "text": "steps/4-nwb-component/README.md"
       },
       {
-        "title": "ngrok",
-        "text": "steps/5-ngrok/README.md"
+        "title": "React Lifecycle",
+        "text": "steps/5-react-lifecycle/README.md"
       },
       {
         "title": "Doing it in style",
@@ -32,6 +32,10 @@
       {
         "title": "Tracking state after User Interaction",
         "text": "steps/7-stateful-component/README.md"
+      },
+      {
+        "title": "ngrok",
+        "text": "steps/8-ngrok/README.md"
       }
     ],
     "intro": {
