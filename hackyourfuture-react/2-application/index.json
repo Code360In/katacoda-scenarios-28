@@ -6,10 +6,17 @@
   "details": {
     "steps": [
       {
-        "title": "setup",
-        "text": "steps/1/step1.md"
+        "title": "Enterprise applications",
+        "text": "steps/1-maintainable-code/README.md"
+      },
+      {
+        "title": "create-react-app",
+        "text": "steps/2-create-react-app/README.md"
+      },
+      {
+        "title": "Automating Testing and Devops",
+        "text": "steps/3-automating-devops/README.md"
       }
-
     ],
     "intro": {
       "text": "intro.md",
