@@ -16,6 +16,10 @@
       {
         "title": "Automating Testing and Devops",
         "text": "steps/3-automating-devops/README.md"
+      },
+      {
+        "title": "Coding Faster",
+        "text": "steps/4-coding-faster/README.md"
       }
     ],
     "intro": {
