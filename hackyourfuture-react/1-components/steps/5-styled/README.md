@@ -8,6 +8,10 @@ For writing a recipe app, we will need some data!
 
 [openrecip.es](http://openrecipes.s3.amazonaws.com/openrecipes.txt)
 
+Open, crowd-sourced database of Recipes from around the world
+
+[meal-db](https://www.themealdb.com/)
+
 If you feel like doing your styling from scratch, here is some inspiration
 
 with code [ui-card collection on codepen](https://codepen.io/collection/XgYebO)
