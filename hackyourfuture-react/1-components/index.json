@@ -6,7 +6,19 @@
   "details": {
     "steps": [
       {
-        "title": "setup",
+        "title": "Dealing with complexity",
+        "text": "steps/complexity/README.md"
+      },
+      {
+        "title": "React what is it?",
+        "text": "steps/react-whatisit/README.md"
+      },
+      {
+        "title": "Transpiling Problem",
+        "text": "steps/transpiling-pb/README.md"
+      },
+      {
+        "title": "First component",
         "text": "steps/1/README.md"
       },
       {
