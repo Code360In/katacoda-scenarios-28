@@ -22,12 +22,12 @@
         "text": "steps/4-nwb-component/README.md"
       },
       {
-        "title": "React Lifecycle",
-        "text": "steps/5-react-lifecycle/README.md"
+        "title": "Doing it in style",
+        "text": "steps/5-styled/README.md"
       },
       {
-        "title": "Doing it in style",
-        "text": "steps/6-styled/README.md"
+        "title": "React Lifecycle",
+        "text": "steps/6-react-lifecycle/README.md"
       },
       {
         "title": "Tracking state after User Interaction",
