@@ -7,23 +7,31 @@
     "steps": [
       {
         "title": "Dealing with complexity",
-        "text": "steps/complexity/README.md"
+        "text": "steps/1-complexity/README.md"
       },
       {
         "title": "React what is it?",
-        "text": "steps/react-whatisit/README.md"
+        "text": "steps/2-react-whatisit/README.md"
       },
       {
         "title": "Transpiling Problem",
-        "text": "steps/transpiling-pb/README.md"
+        "text": "steps/3-transpiling-pb/README.md"
       },
       {
         "title": "First component",
-        "text": "steps/1/README.md"
+        "text": "steps/4-nwb/README.md"
       },
       {
         "title": "ngrok",
-        "text": "steps/ngrok/README.md"
+        "text": "steps/5-ngrok/README.md"
+      },
+      {
+        "title": "Doing it in style",
+        "text": "steps/6-styled/README.md"
+      },
+      {
+        "title": "Tracking state after User Interaction",
+        "text": "steps/7-stateful-component/README.md"
       }
     ],
     "intro": {

@@ -5,6 +5,8 @@ Once you start writing applications that are meant to  provide a service to the 
 
 If you visit any website that provides design templates, like [ui8](https://ui8.net/), you rapidly realise that apps can easily include well over 30 screens.
 
+![](shop-screens.png)
+
 For instance
 - [Food delivery](https://ui8.net/noansa-studio/products/foody---food-delivery-ui-kit)
 - [E-commerce](https://ui8.net/dimoui/products/siadagang-ecommerce-ui-kit)
@@ -45,7 +47,7 @@ In 2020, the major players are:
 
 ![](./jsx-vs-template.png)
 
-Angular and Vue: Templates and Bindings
+Angular and Vue: Templates, Bindings, and Directives
 
 > Binding is, what it sounds like. It is like a connection that you define between a Template element and an action, to perform some changes and the Angular will take care of the rest.
 
@@ -59,7 +61,7 @@ Angular and Vue: Templates and Bindings
 
 2/ Community Size
 
-For instance, a large chunk of Vue developer community is from non-English speaking eastern European countries. 
+For instance, a large chunk of Vue developer community is from non-English speaking eastern European countries.
 
 However Vue saw a mammoth rise in popularity since 2019.
 
@@ -80,5 +82,5 @@ But by all means, make your own mind by reading some in-depth reviews
 - [stateofjs.com](https://2019.stateofjs.com/)
 
 With a bit of google-fu, you can get more insights on
-- [differences between javascript libraries and frameworks](https://medium.com/better-programming/libraries-vs-frameworks-whats-the-difference-5f28c53dcffe) and
-- reasons people give to [avoid frameworks](http://tomasp.net/blog/2015/library-frameworks/)
+- [Differences between javascript libraries and frameworks](https://medium.com/better-programming/libraries-vs-frameworks-whats-the-difference-5f28c53dcffe) and
+- Reasons people give to [avoid frameworks](http://tomasp.net/blog/2015/library-frameworks/)
