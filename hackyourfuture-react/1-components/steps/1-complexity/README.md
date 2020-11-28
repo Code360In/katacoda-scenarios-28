@@ -1,13 +1,15 @@
 ## Building medium to large entreprise applications
+
 ### Dealing with Complexity
 
-Once you start writing applications that are meant to  provide a service to the customer, you end up having to design a number of screens.
+Once you start writing applications that are meant to provide a service to a customer, you end up having to design a number of screens.
 
 If you visit any website that provides design templates, like [ui8](https://ui8.net/), you rapidly realise that apps can easily include well over 30 screens.
 
-![](shop-screens.png)
+![](http://clients.widged.com/hackyourfuture/assets/shop-screens.png)
 
 For instance
+
 - [Food delivery](https://ui8.net/noansa-studio/products/foody---food-delivery-ui-kit)
 - [E-commerce](https://ui8.net/dimoui/products/siadagang-ecommerce-ui-kit)
 - [Doctor appointments](https://ui8.net/tickbird/products/bdoctor-appfor-doctor-ui-kit)
@@ -17,16 +19,19 @@ For instance
 
 1/ Writing the application in a modular way. Mostly, what it means is that when you make a change somewhere in your application, it does not create unexpected changes in other parts of your application. A key concept associated with modules is the one of encapsulation.
 
->Encapsulation is one of the object oriented principles. It is combination of two notions:
->- Keeping data and functionality as a single unit.
->- Having the ability to restrict the access to some object from outside world.
+> Encapsulation is one of the object oriented principles. It is combination of two notions:
+>
+> - Keeping data and functionality as a single unit.
+> - Having the ability to restrict the access to some object from outside world.
 
+2/ Maintainability
 
 ### Choice!
 
 ![too many js frameworks](https://miro.medium.com/max/1100/1*Q2t-jgIzVx_w1Cyy1YlbNw.png)
 
 In 2020, the major players are:
+
 - React JS
 - Vue Js
 - Angular JS
@@ -45,13 +50,13 @@ In 2020, the major players are:
 
 #### 2/ HTML in Code vs Code in HTML
 
-![](./jsx-vs-template.png)
+![](http://clients.widged.com/hackyourfuture/assets/jsx-vs-template.png)
 
 Angular and Vue: Templates, Bindings, and Directives
 
 > Binding is, what it sounds like. It is like a connection that you define between a Template element and an action, to perform some changes and the Angular will take care of the rest.
 
-![](directives.png)
+![](http://clients.widged.com/hackyourfuture/assets/directives.png)
 
 ### How do we get to pick one!?
 
@@ -73,7 +78,6 @@ However Vue saw a mammoth rise in popularity since 2019.
 
 ![](https://www.sphinx-solution.com/blog/wp-content/uploads/2019/05/angular-react-vue_table.jpg)
 
-
 ### We are going for React!
 
 But by all means, make your own mind by reading some in-depth reviews
@@ -82,5 +86,6 @@ But by all means, make your own mind by reading some in-depth reviews
 - [stateofjs.com](https://2019.stateofjs.com/)
 
 With a bit of google-fu, you can get more insights on
+
 - [Differences between javascript libraries and frameworks](https://medium.com/better-programming/libraries-vs-frameworks-whats-the-difference-5f28c53dcffe) and
 - Reasons people give to [avoid frameworks](http://tomasp.net/blog/2015/library-frameworks/)
