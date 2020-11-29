@@ -1,5 +1,3 @@
-## Recipe Data
-
 For writing a recipe app, we will need some data!
 
 [recipe-db](https://github.com/tabatkins/recipe-db)
