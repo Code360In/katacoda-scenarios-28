@@ -17,3 +17,6 @@ export const Icon = styled.span`
 
 To get the image `src`, right click over an image and select `Copy Image Address`
 
+## Example
+
+[2-recipe-card](https://repl.it/join/xglbdgim-widged)

@@ -86,3 +86,7 @@ const LandingPage = () => {
 
 export default LandingPage
 ```
+
+## Example
+
+[2-recipe-card](https://repl.it/join/xglbdgim-widged)

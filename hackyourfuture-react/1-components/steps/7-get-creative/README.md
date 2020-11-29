@@ -48,10 +48,6 @@ with code [ui-card collection on codepen](https://codepen.io/collection/XgYebO)
 [on flaticon](https://www.flaticon.com/search?word=recipe)
 
 
-## Utils
-
-[AdobeIllustrator to SVG](https://convertio.co/ai-svg/)
-
 
 ## Step by step instructions
 
@@ -73,3 +69,9 @@ with code [ui-card collection on codepen](https://codepen.io/collection/XgYebO)
 
 [Cooking Pasta](https://www.freepik.com/premium-vector/steps-how-prepare-pasta_7198259.htm)
 
+
+## Online converters
+
+[AdobeIllustrator to SVG](https://convertio.co/ai-svg/)
+
+[CSV to JSON](https://csvjson.com/)
