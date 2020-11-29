@@ -56,10 +56,6 @@
       {
         "title": "Recipe Data",
         "text": "steps/7a-recipe-data/README.md"
-      },
-      {
-        "title": "ngrok",
-        "text": "steps/8-ngrok/README.md"
       }
     ],
     "intro": {

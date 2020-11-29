@@ -1,8 +1,4 @@
-## Working remotely in teams
-
-### Ngrok
-
-
+## Sharing your screen 
 
 #### Installing it
 
