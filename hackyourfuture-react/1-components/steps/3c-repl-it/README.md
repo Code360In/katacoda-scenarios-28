@@ -4,6 +4,11 @@
 
 [Use this link](https://repl.it/join/fbcyugat-widged)
 
+or this one
+
+[Head to the template](https://repl.it/@widged/1-HelloBrussels)
+
+
 ###  Login
 
 To login, use the github icon. This will user your github credentials. 
@@ -26,4 +31,4 @@ Click on 'Fork' next to run.
 
 ### Let's get started 
 
-[Head to the template](https://repl.it/join/fbcyugat-widged)
+[Head to the template](https://repl.it/@widged/1-HelloBrussels)

@@ -2,7 +2,7 @@
 
 ### Example
 
-[4-interaction](https://repl.it/join/jyctkgvj-widged)
+[4-interaction](https://repl.it/@widged/4-interaction)
 
 ```
 import React, {Component} from 'react'

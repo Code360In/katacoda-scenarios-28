@@ -89,4 +89,4 @@ export default LandingPage
 
 ## Example
 
-[2-recipe-card](https://repl.it/join/xglbdgim-widged)
+[2-recipe-card](https://repl.it/@widged/2-recipe-card)
