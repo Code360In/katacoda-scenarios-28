@@ -1,17 +1,30 @@
-We are going to use `repl.it`
+## We will be using Repl.it
 
-## Login using github
+![](https://clients.widged.com/hackyourfuture/assets/sandbox/glitch.png)
 
-![](replit-login.png)
 
-## Navigate to this repo and fork
+[Use this link](https://repl.it/join/fbcyugat-widged)
 
-[https://repl.it/@widged/1-HelloBrussels](https://repl.it/@widged/1-HelloBrussels)
+###  Login
 
-![](replit-ui.png)
+To login, use the github icon. This will user your github credentials. 
 
-## Adding dependencies
+![](https://clients.widged.com/hackyourfuture/assets/replit/replit-login.png)
 
-[https://repl.it/@widged/1-HelloBrussels](https://repl.it/@widged/1-HelloBrussels)
+###  Fork it
 
-![](replit-ui.png)
+[Head to the template](https://repl.it/join/fbcyugat-widged)
+
+Click on 'Fork' next to run. 
+
+###  Screen
+
+![](https://clients.widged.com/hackyourfuture/assets/replit/replit-screen.png)
+
+### Exporting
+
+![](https://clients.widged.com/hackyourfuture/assets/replit/replit-exports.png)
+
+### Let's get started 
+
+[Head to the template](https://repl.it/join/fbcyugat-widged)

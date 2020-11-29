@@ -1,16 +1,14 @@
-# React Lifecycle 
-
-## Stateless Function Component vs Statefull Class  component
+## Function Component vs Class  component
 
 ### Function Component 
 
 ```
 import React from 'react';
-const Student = (props) => {
-    const {name} = props
-   return <div>Hi, I am a Student. My name is {name} </div>
+const RecipePhoto = (props) => {
+    const {src} = props
+   return <img src={src} width="200" />
 }
-export default Student;
+export default RecipePhoto;
 ```
 
 ### Class Component 
@@ -18,12 +16,15 @@ export default Student;
 ```
 import React ,  {Component} from 'react';
 
-class Student extends Component {
+class RecipePicker extends Component {
     render() {
         const {name} = this.props
         return <div>Hi, I am a Student. My name is {name} </div>
     }
 }
+
+
+
 export default Student;
 ```
 

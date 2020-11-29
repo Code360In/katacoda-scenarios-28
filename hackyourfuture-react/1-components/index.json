@@ -22,7 +22,7 @@
         "text": "steps/3a-nwb-component/README.md"
       },
       {
-        "title": "React sandboxes",
+        "title": "Code sandboxes for Reacjs",
         "text": "steps/3b-sandboxes/README.md"
       },
       {
@@ -34,7 +34,11 @@
         "text": "steps/5-styled/README.md"
       },
       {
-        "title": "Layout",
+        "title": "Style :: Media",
+        "text": "steps/5a-media/README.md"
+      },
+      {
+        "title": "Style:: Layout",
         "text": "steps/5b-layout/README.md"
       },
       {
@@ -80,6 +84,14 @@
       {
         "name": "1-HelloBrussels",
         "href": "https://repl.it/@widged/1-HelloBrussels"
+      },
+      {
+        "name": "2-recipe-card",
+        "href": "https://repl.it/@widged/2-recipe-card"
+      },
+      {
+        "name": "3-recipe-list",
+        "href": "https://repl.it/@widged/3-recipe-list"
       }
     ],
     "uilayout": "editor-terminal",

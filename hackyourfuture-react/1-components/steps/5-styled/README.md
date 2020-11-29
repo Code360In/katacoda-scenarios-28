@@ -1,25 +1,45 @@
 # Doing it in style
 
-Time to use react for doing something useful! For these two sessions on React, we will go for the general theme of "recipes"
+Time to use react for doing something useful! For these two sessions on React, we will go for the general theme of "recipes". 
 
-For writing a recipe app, we will need some data!
+We will try and create content like this, as react components:
 
-[recipe-db](https://github.com/tabatkins/recipe-db)
+![](https://caphe.sfo2.cdn.digitaloceanspaces.com/assets/images/scratch-recipe-ui-kit-0.jpg)
 
-[openrecip.es](http://openrecipes.s3.amazonaws.com/openrecipes.txt)
+But for this, we need to be able to specify some styling.
 
-Open, crowd-sourced database of Recipes from around the world
+In React, by default, it is done by adding style in-line. 
 
-[meal-db](https://www.themealdb.com/)
+```
+var divStyle = {
+  color: 'white',
+  backgroundImage: 'url(' + imgUrl + ')',
+  WebkitTransition: 'all', // note the capital 'W' here
+  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+};
 
-If you feel like doing your styling from scratch, here is some inspiration
+ReactDOM.render(<div style={divStyle}>Hello World!</div>, mountNode);
+```
 
-with code [ui-card collection on codepen](https://codepen.io/collection/XgYebO)
+However, this is not really practical. It looks like CSS but it is not quite css. 
 
+Styled are not specified as a string. Instead they are specified with an object whose key is the camelCased version of the style name in order to be consistent with accessing the properties on DOM nodes from JS (e.g. node.style.backgroundImage). 
 
-## Adding CSS style
+And the value is not always the way you would specify it in CSS. For instance, you specify width as `{width: 24}`, as a number, and not `{width: '24px'}`
+
+Why can we not use the CSS that we already know!? Libraries can be used for that. 
+
+Two popular ones are `styled-components` and `emotions`. We are going to use `styled-components` . 
+
+## Specifying CSS styles with  `styled-components` 
 
 First we need to make sure that we have the dependency added in our current package
+
+On Repl.it, you add a new dependency this way:
+
+![](https://clients.widged.com/hackyourfuture/assets/replit/add-a-package.png)
+
+When developing on your local environment, you can do it this way:
 
 ```
 yarn add styled-components
