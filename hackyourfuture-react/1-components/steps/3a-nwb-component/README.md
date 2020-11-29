@@ -11,7 +11,7 @@ cd ~/sandbox/step_1/
 
 `yarn init`{{execute}}
 
-Enter and accept all de
+Enter and accept all defaults.
 
 #### Create an index.js file
 
@@ -105,4 +105,8 @@ Note. `document.querySelector('#app')` is a command to find in the dom an elemen
 yarn add react react-dom
 ```{{execute}}
 
+### Let's start the app in dev mode
 
+```
+yarn start
+```{{execute}}
