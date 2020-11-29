@@ -1,5 +1,3 @@
-## The transpiling problem!
-
 I am pretty sure you have already been told of this. In 2015, the javascript language got major upgrade! Mostly, there was a move to make the notion of **modules**, that had become fully supported in the nodejs environment, available in browser-based environments.
 
 With a **module**, you get the option to split your code into separate files and to "import" the code on demand. This helps write code that is easier to design, maintain and debug.
