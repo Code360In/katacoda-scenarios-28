@@ -1,4 +1,3 @@
-## We will be using Repl.it
 
 ![](https://clients.widged.com/hackyourfuture/assets/sandbox/repl-it.png)
 

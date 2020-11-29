@@ -26,7 +26,7 @@
         "text": "steps/3b-sandboxes/README.md"
       },
       {
-        "title": "Repl.it",
+        "title": "We will be using Repl.it",
         "text": "steps/3c-repl-it/README.md"
       },
       {
@@ -34,12 +34,12 @@
         "text": "steps/5-styled/README.md"
       },
       {
-        "title": "Style :: Media",
+        "title": "Adding Images",
         "text": "steps/5a-media/README.md"
       },
       {
-        "title": "Style:: Layout",
-        "text": "steps/5b-layout/README.md"
+        "title": "Dealing with Lists",
+        "text": "steps/5b-lists/README.md"
       },
       {
         "title": "React Lifecycle",
