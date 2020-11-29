@@ -50,6 +50,14 @@
         "text": "steps/6a-stateful-component/README.md"
       },
       {
+        "title": "Get Creative",
+        "text": "steps/7-get-creative/README.md"
+      },
+      {
+        "title": "Recipe Data",
+        "text": "steps/7a-recipe-data/README.md"
+      },
+      {
         "title": "ngrok",
         "text": "steps/8-ngrok/README.md"
       }
