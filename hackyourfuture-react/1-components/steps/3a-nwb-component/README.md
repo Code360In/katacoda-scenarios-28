@@ -77,6 +77,9 @@ module.exports = {
 
 ### The code
 
+`touch App.js`{{execute}}
+
+
 `App.js`
 
 ```
