@@ -92,6 +92,10 @@
       {
         "name": "3-recipe-list",
         "href": "https://repl.it/@widged/3-recipe-list"
+      },
+      {
+        "name": "4-interaction",
+        "href": "https://repl.it/@widged/4-interaction"
       }
     ],
     "uilayout": "editor-terminal",
