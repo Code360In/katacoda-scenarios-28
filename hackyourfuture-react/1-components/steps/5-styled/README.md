@@ -1,6 +1,7 @@
-# Doing it in style
 
-Time to use react for doing something useful! For these two sessions on React, we will go for the general theme of "recipes". 
+Time to use react for doing something useful! 
+
+For these two sessions on React, we will go for the general theme of "recipes". 
 
 We will try and create content like this, as react components:
 
@@ -73,14 +74,15 @@ export const Emphasis = styled.span`
 
 Note how we use `export const` instead of `export default` to allow multiple exports within the file
 
+We choose to isolate `App.js`, which is about mounting the rendered react app in the DOM and `LandingPage.js`  which is the react component associated to the First Page that the user see when it connects to our app. 
+
 ```
-import React, {Component} from 'react'
-import {RedBox, BoldText} from './styled.js'
+import React from 'react'
+import {RedBox, Emphasis} from './styled.js'
 
-const WarningBox = (props) => {
-    const {message} = props
-
-    return <RedBox><Emphasis>Warning</Emphasis>{message}</RedBox>
-
+const LandingPage = () => {
+  return <RedBox><Emphasis>Warning</Emphasis></RedBox>
 }
+
+export default LandingPage
 ```
