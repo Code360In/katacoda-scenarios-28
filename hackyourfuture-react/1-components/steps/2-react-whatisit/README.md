@@ -7,6 +7,15 @@
 
 ![](https://static.bit.dev/homepage-bit/assets/booking-breakdown.png)
 
+## Writing reusable components
+
+![](https://mir-s3-cdn-cf.behance.net/project_modules/fs/25578470010007.5b95492d24c83.png)
+
+
+## Coherent look and feel through the application
+![](https://mir-s3-cdn-cf.behance.net/project_modules/fs/640c8e70010007.5b95492d24650.png)
+
+
 ## Mini App example
 
 ![](https://clients.widged.com/hackyourfuture/assets/filterable_product_table.png)
