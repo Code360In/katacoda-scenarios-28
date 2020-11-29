@@ -7,6 +7,14 @@ You know about it!
 
 [nextjs](https://nextjs.org/)
 
+## Firebase
+
+```
+  "scripts": {
+    "deploy": "yarn build && firebase deploy"
+  }
+  ```
+
 ## ScaleDynamics
 
 It's European!

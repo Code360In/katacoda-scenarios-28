@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "nwb build-react-app index.js",
+    "start": "nwb serve-react-app App.js --reload",
+    "build": "nwb build-react-app App.js",
     "clean": "nwb clean-app",
-    "start": "nwb serve-react-app index.js --reload",
     "lint": "standard --verbose | snazzy",
-    "format": "standard --fix",
-    "deploy": "yarn build && firebase deploy"
+    "format": "standard --fix"
   },
   "dependencies": {
     "nwb": "^0.25.2"

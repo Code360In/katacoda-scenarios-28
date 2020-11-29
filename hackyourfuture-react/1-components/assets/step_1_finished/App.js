@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
 class App extends Component {
   render() {
-    return <h1>Hello Wellington!</h1>
+    return <h1>Hello Brussels!</h1>;
   }
 }
 

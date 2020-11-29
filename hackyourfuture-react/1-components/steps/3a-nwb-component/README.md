@@ -1,6 +1,5 @@
-## A first React component
 
-### Heading to `step_1`
+## Heading to `step_1`
 
 ```
 mkdir ~/sandbox/step_1/
@@ -8,7 +7,7 @@ cd ~/sandbox/step_1/
 ```{{execute}}
 
 
-#### Initialize a javascript `package`
+### Initialize a javascript `package`
 
 `yarn init`{{execute}}
 
@@ -19,13 +18,13 @@ Enter and accept all de
 `touch index.js`{{execute}}
 
 
-### The quickest way to start with React -- NWB
+## The quickest way to start with React -- NWB
 
 NWB is short for "No webpack"!
 
 [NWB @github](https://github.com/insin/nwb#readme)
 
-#### 1/ Install `nwb` globally
+### 1/ Install `nwb` globally
 
 ```
 yarn global add nwb
@@ -35,7 +34,7 @@ This will take a bit... sit back and relax.
 
 > Note. This is a one time thing. Once you have to installed it on the machine you use for coding, you won't have to run this instruction again. 
 
-#### 2/ Install nwb locally
+### 2/ Install nwb locally
 
 For each new project folder that you create, you will need to install the local version of nwb. This gives you access to utilities from the command line. 
 
@@ -45,12 +44,12 @@ For each new project folder that you create, you will need to install the local 
 
 ```
 "scripts": {
-  "start": "nwb serve-react-app index.js",
-  "build": "nwb build-react-app index.js"
+  "start": "nwb serve-react-app App.js",
+  "build": "nwb build-react-app App.js"
 }
 ```{{copy}}
 
-#### 3/ Add a config file to overwrite the webpack configuration if you need to
+### 3/ Add a config file to overwrite the webpack configuration if you need to
 
 This part is for my setup only, because I am on this sandbox environment.
 
@@ -78,26 +77,19 @@ module.exports = {
 
 ### The code
 
-`HelloBrussels.jsx`
+`App.js`
 
 ```
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
-const  Component {
-    return <div>Hello Brussels</div>;
+class App extends Component {
+  render() {
+    return <h1>Hello Brussels!</h1>;
+  }
 }
 
-export default Component
-```
-
-`index.js`
-
-```
-import {render} from 'react-dom';
-import HelloBrussels from 'HelloBrussels'
-
-render(<HelloBrussels/>, document.querySelector('#app'));
+render(React.createElement(App), document.querySelector('#app'));
 ```{{copy}}
 
 Note. `document.querySelector('#app')` is a command to find in the dom an element with for id `app`
