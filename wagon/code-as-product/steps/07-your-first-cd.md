@@ -29,11 +29,16 @@ Deploying to heroku is as simple as:
 
 Here is how to do
 - Go the root of your repository you created in last exercices
+```bash
+cd ~/sandbox/06-Your-First-CI
+```{{execute}}
+
+
 - Add a file named `Procfile` at the root of your repository
 - Insert the following line inside `Procfile` (change the name of your package) in order to run your script when the application is deployed
 
 ```bash
-web: pip install . -U && YOUR_PACKAGE_NAME-run
+pip install . -U && YOUR_PACKAGE_NAME-run
 ```{{execute}}
 
 - Create your app (change the name of your package)
@@ -46,6 +51,7 @@ heroku create YOUR_PACKAGE_NAME
 https://YOUR_PACKAGE_NAME.herokuapp.com/
 - Now we will deploy our package to this server, do not forget to commit your code before pushing to heroku: only the commited code will be pushed to production
 
+
 ```bash
 git add Procfile
 git commit -m 'heroku Procfile added'
@@ -57,7 +63,6 @@ git st
 git push heroku master
 ```{{execute}}
 - Deploy on free heroku dynos
-
 ```bash
 heroku ps:scale web=1
 ```{{execute}}

@@ -18,6 +18,12 @@ pip install coverage
 ## Run tests
 
 In `~/sandbox/02-Package-installation`
+
+```bash
+cd ~/sandbox/02-Package-installation
+```{{execute}}
+
+
 Inspect `mlproject/lib.py`  and `tests/lib_test.py`
 Inspect Makefile and run:
 
