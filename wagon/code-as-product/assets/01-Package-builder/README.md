@@ -1,19 +1,31 @@
+# 01 Package Builder
+
+## Prerequisites
+
+```
+pip install mlflow
+pip install category_encoders
+pip install pygeohash
+pip install memoized_property
+clear
+```{{execute}}
+
 ## Install Package builder with pip
 
 Before doing anything here, please make sure _**you are inside a python3 virtual environment**_
 
 ```bash
 pip install wagon-tools
-```
+```{{execute}}
 
 As seen in this morning's lecture, quite a lot of things happened. You have installed:
 
-- `create_package` package and its modules:
+- `wagon_tools` package and its modules:
 
 ```python
-from create_package.lib import get_data
+from wagon_tools.lib import get_data
 get_data()
-```
+```{{execute}}
 
 - `wagon-make-package` script
 
@@ -29,13 +41,13 @@ Go to `/tmp` to test the script, and build your first package:
 
 ```bash
 cd /tmp && wagon-make-package first_project
-```
+```{{execute}}
 
 Get inside you newliy created paskage
 
 ```bash
 cd first_project
-```
+```{{execute}}
 
 Here is the project structure where you'll want to use to package your code.
 Check how your package is structured by running `tree` inside your terminal
