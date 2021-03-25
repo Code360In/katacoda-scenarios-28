@@ -1,5 +1,14 @@
 # 01 Package Builder
 
+## Prerequisites
+
+````
+pip install mlflow
+pip install category_encoders
+pip install pygeohash
+pip install memoized_property
+clear
+```{{execute}}
 
 ## Install Package builder with pip
 
@@ -12,12 +21,6 @@ pip install wagon-tools
 As seen in this morning's lecture, quite a lot of things happened. You have installed:
 
 - `wagon_tools` package and its modules:
-
-```python
-from wagon_tools.lib import get_data
-get_data()
-```{{execute}}
-
 - `wagon-make-package` script
 
 This script will be your package builder.
@@ -28,10 +31,10 @@ Now let's suppose you start a new ML project, you want to package your code some
 
 You now have access to a cool script that you can run from anywhere on your laptop
 
-Go to `/tmp` to test the script, and build your first package:
+Go to `sandbox/01-Package-builder/` to test the script, and build your first package:
 
 ```bash
-cd /tmp && wagon-make-package first_project
+cd sandbox/01-Package-builder/ && wagon-make-package first_project
 ```{{execute}}
 
 Get inside you newliy created paskage
@@ -43,7 +46,7 @@ cd first_project
 Here is the project structure where you'll want to use to package your code.
 Check how your package is structured by running `tree` inside your terminal
 
-```bash
+```
 $ tree
 ├── MANIFEST.in
 ├── Makefile
@@ -60,4 +63,4 @@ $ tree
 └── tests
     ├── __init__.py
     └── lib_test.py
-```
+````
