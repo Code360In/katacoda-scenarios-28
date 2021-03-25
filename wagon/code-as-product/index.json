@@ -11,7 +11,31 @@
     "steps": [
       {
         "title": "01 Package Builder",
-        "text": "steps/step1.md"
+        "text": "steps/01-package-builder.md"
+      },
+      {
+        "title": "02 Package Installation",
+        "text": "steps/02-package-intallation.md"
+      },
+      {
+        "title": "03 Test Your Code",
+        "text": "steps/03-test-your-code.md"
+      },
+      {
+        "title": "04 Share Your Code",
+        "text": "steps/04-share-your-code.md"
+      },
+      {
+        "title": "05 Build Your Toolbox",
+        "text": "steps/05-build-your-toolbox.md"
+      },
+      {
+        "title": "06 Your First CI",
+        "text": "steps/06-your-first-ci.md"
+      },
+      {
+        "title": "07 Your First CD",
+        "text": "steps/07-your-first-cd.md"
       }
     ],
     "finish": {
