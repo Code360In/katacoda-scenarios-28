@@ -1,14 +1,5 @@
 # 01 Package Builder
 
-## Prerequisites
-
-`````
-pip install mlflow
-pip install category_encoders
-pip install pygeohash
-pip install memoized_property
-clear
-```{{execute}}
 
 ## Install Package builder with pip
 
@@ -16,7 +7,7 @@ Before doing anything here, please make sure _**you are inside a python3 virtual
 
 ```bash
 pip install wagon-tools
-````{{execute}}
+```{{execute}}
 
 As seen in this morning's lecture, quite a lot of things happened. You have installed:
 
@@ -69,4 +60,4 @@ $ tree
 └── tests
     ├── __init__.py
     └── lib_test.py
-`````
+```
