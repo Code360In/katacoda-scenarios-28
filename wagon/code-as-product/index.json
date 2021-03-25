@@ -1,0 +1,39 @@
+{
+  "title": "Wagon iterations",
+  "description": "Day 1 of data pipelines",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "01 Package Builder",
+        "text": "steps/step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "*",
+          "target": "~/sandbox",
+          "chmod": "+r"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal",
+    "uieditorpath": "sandbox",
+    "uimessage1": "welcome!"
+  },
+  "backend": {
+    "imageid": "python:3.8"
+  }
+}

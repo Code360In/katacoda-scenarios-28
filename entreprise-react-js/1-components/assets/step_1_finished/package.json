@@ -1,0 +1,15 @@
+{
+  "name": "usage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nwb serve-react-app App.js --reload",
+    "build": "nwb build-react-app App.js",
+    "clean": "nwb clean-app",
+    "lint": "standard --verbose | snazzy",
+    "format": "standard --fix"
+  },
+  "dependencies": {
+    "nwb": "^0.25.2"
+  }
+}

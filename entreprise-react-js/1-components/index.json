@@ -1,0 +1,123 @@
+{
+  "title": "React Components",
+  "description": "Writing your first react components",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "steps": [
+      {
+        "title": "Building medium to large entreprise applications",
+        "text": "steps/1-complexity/README.md"
+      },
+      {
+        "title": "React what is it?",
+        "text": "steps/2-react-whatisit/README.md"
+      },
+      {
+        "title": "Transpiling Problem",
+        "text": "steps/3-transpiling-pb/README.md"
+      },
+      {
+        "title": "A first React component",
+        "text": "steps/3a-nwb-component/README.md"
+      },
+      {
+        "title": "Code sandboxes for Reacjs",
+        "text": "steps/3b-sandboxes/README.md"
+      },
+      {
+        "title": "We will be using Repl.it",
+        "text": "steps/3c-repl-it/README.md"
+      },
+      {
+        "title": "Doing it in style",
+        "text": "steps/5-styled/README.md"
+      },
+      {
+        "title": "Adding Images",
+        "text": "steps/5a-media/README.md"
+      },
+      {
+        "title": "Dealing with Lists",
+        "text": "steps/5b-lists/README.md"
+      },
+      {
+        "title": "React Lifecycle",
+        "text": "steps/6-react-lifecycle/README.md"
+      },
+      {
+        "title": "Tracking state after User Interaction",
+        "text": "steps/6a-stateful-component/README.md"
+      },
+      {
+        "title": "Get Creative",
+        "text": "steps/7-get-creative/README.md"
+      },
+      {
+        "title": "Recipe Data",
+        "text": "steps/7a-recipe-data/README.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "*",
+          "target": "~/sandbox",
+          "chmod": "+r"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "showdashboard": true,
+    "delayToSaveFileAfterStopTypingMilliseconds": 2000,
+    "autoFormatEnable": false,
+    "dashboards": [
+      {
+        "name": "Web Application",
+        "port": 3000
+      },
+      {
+        "name": "1-HelloBrussels",
+        "href": "https://repl.it/@widged/1-HelloBrussels"
+      },
+      {
+        "name": "2-recipe-card",
+        "href": "https://repl.it/@widged/2-recipe-card"
+      },
+      {
+        "name": "3-recipe-list",
+        "href": "https://repl.it/@widged/3-recipe-list"
+      },
+      {
+        "name": "4-interaction",
+        "href": "https://repl.it/@widged/4-interaction"
+      }
+    ],
+    "uilayout": "editor-terminal",
+    "uisettings": "javascript",
+    "exclusionPatterns": [
+      "._*",
+      "package.json",
+      "package-lock.json",
+      "node_modules",
+      "public*",
+      "serviceWorker*"
+    ],
+    "hideHiddenFiles": true,
+    "uieditorpath": "sandbox",
+    "uimessage1": "welcome!"
+  },
+  "backend": {
+    "imageid": "ubuntu1804",
+    "port": 3000
+  }
+}
