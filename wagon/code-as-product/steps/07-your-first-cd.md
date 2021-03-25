@@ -14,10 +14,12 @@ Here you have many different possibilities, we chose Heroku for many reasons:
 
 - sign in to [heroku](https://signup.heroku.com/)
 - install [heroku cli](https://devcenter.heroku.com/articles/heroku-cli)
-- test login
-
 ```bash
-heroku login
+curl https://cli-assets.heroku.com/install.sh | sh
+```{{execute}}
+- test login
+```bash
+heroku login --interactive
 ```{{execute}}
 
 ## Deploy your first package to heroku

@@ -7,7 +7,7 @@ Install your first package called `mlproject`
 Now navigate outside of your `data-challenges` directory and create a new `mlproject`:
 
 ```bash
-cd ~/code/<user.github_nickname>
+cd ~/sandbox/02-Package-installation/
 wagon-make-package mlproject
 ```{{execute}}
 
@@ -17,7 +17,13 @@ The ultimate goals of our `mlproject` are:
 - install scripts
 
 Get inside `mlproject`
-👉 Inspect script under `scripts/mlproject-run`
+
+```bash
+cd mlproject
+```{{execute}}
+
+
+👉 Inspect script under `scripts/mlproject-run` (you might have to click on the refresh button)
 👉 Inspect code you want to package as a module under `mlproject/`
 
 You'll want to install these dependencies and the script.
@@ -37,9 +43,22 @@ Your mlproject is now a package, just like pandas or sklearn
 
 Go anywhere you want and run inside either `ipython` or a `python` interpreter or a notebook:
 
+```bash
+ipython
+```{{execute}}
+
+
 ```python
 from mlproject.lib import clean_data
+clean_data
 ```{{execute}}
+
+Exit the REPL
+
+```python
+exit()
+```{{execute}}
+
 
 ## Project as scripts
 
@@ -52,6 +71,12 @@ mlproject-run
 ## Your first module now
 
 Create a new python file called `mlproject/distance.py` inside which you'll add the following function
+
+```bash
+touch mlproject/distance.py
+```{{execute}}
+
+Go to the editor, hit refresh if you need to. Paste the following.
 
 ```python
 from math import radians, cos, sin, asin, sqrt
@@ -71,7 +96,7 @@ def haversine(lon1, lat1, lon2, lat2):
     c = 2 * asin(sqrt(a))
     r = 6371  # Radius of earth in kilometers. Use 3956 for miles
     return c * r
-```{{execute}}
+```{{copy}}
 
 To check if your function works, a good practice is to add `if __name__ == "__main__"` at the end of `distance.py` and compute your first distance:
 
@@ -83,9 +108,12 @@ if __name__ == "__main__":
     #lat2, lon2 = x, y
     distance = haversine(lon1, lat1, lon2, lat2)
     print(distance)
-```{{execute}}
+```{{copy}}
 
 🤔[Here's a link](https://www.geeksforgeeks.org/what-does-the-if-__name__-__main__-do/) to understand what the condition above does if it's not clear
+
+
+To find the `x,y`, enter a location in google map. You will get an address like `https://www.google.com/maps/place/Bruxelles/@50.8549541,4.3053504,12z/`. `x` is `50.8549541` and `y` is  `4.3053504`.
 
 Then run :
 
@@ -96,6 +124,12 @@ python -i mlproject/distance.py
 If you see `>>>` in your terminal after running this commmand, it's completely normal. the `-i` stands for interactive mode. This means that you can explore the variables you created in your python script. To exit the interactive mode either type `exit()` or `CTRL-D`.
 
 💡 **You could also run `%run mlproject/distance.py` inside a notebook or ipython interpreter (do not forget to `import mlproject.lib`, you must be located in `mlproject/`)**
+
+Exit the REPL
+
+```bash
+exit()
+```{{execute}}
 
 ```bash
 tree
@@ -130,11 +164,21 @@ make install
 
 In any notebook:
 
+```bash
+ipython
+```{{execute}}
+
 ```python
 from mlproject.distance import haversine
+haversine
 ```{{execute}}
 
 👆You should now be able to use your `haversine` function in the notebook.
+
+Exit the REPL
+```bash
+exit()
+```{{execute}}
 
 ## Your own script now
 
@@ -142,10 +186,15 @@ The objective here is to implement a new script under `scripts/` called mlprojec
 
 Install termcolor to allow your script to output colored text `pip install termcolor`.
 
-You can inspect code from `computedist.py` (or `script.py`) file located in
+```python
+pip install termcolor
+```{{execute}}
+
+
+You can inspect code from `computedist.py` (or `script.py`) file located in `~/sandbox/02-Package-installation`
 
 ```bash
-~/code/data-challenges/<user.github_nickname>/data-challenges/07-Data-Engineering/01-Code-as-a-Product/ 02-Package-installation
+cd ~/sandbox/02-Package-installation
 ```{{execute}}
 
 to understand how to give arguments to a script.
@@ -156,11 +205,6 @@ Run :
 python computedist.py --coords 48.865 2.380 48.235 2.393
 ```{{execute}}
 
-or
-
-```bash
-python script.py --coords 48.865 2.380 48.235 2.393
-```{{execute}}
 
 Basically you'll want to run the exact same command but without `python` and anywhere on your laptop.
 For that simply:

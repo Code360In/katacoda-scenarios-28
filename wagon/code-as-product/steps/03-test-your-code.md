@@ -2,10 +2,22 @@
 
 Understand how test works and implement your first test
 
-Install the code coverage package `pip install coverage`.
+Install pytest
+```bash
+pip install -U pytest
+```{{execute}}
+
+Install the code coverage package
+
+```bash
+pip install coverage
+```{{execute}}
+
+
 
 ## Run tests
 
+In `~/sandbox/02-Package-installation`
 Inspect `mlproject/lib.py`  and `tests/lib_test.py`
 Inspect Makefile and run:
 

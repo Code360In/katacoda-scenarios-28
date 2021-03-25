@@ -5,6 +5,11 @@ You have learned how to create your first package, now we'll see one of the bene
 
 ## How do I share my code ?
 
+```bash
+cd ~/sandbox/02-Package-installation
+```{{execute}}
+
+
 Simply create a github repository from your package, and then everyone will be able to get your package via:
 
 ```bash
@@ -17,15 +22,26 @@ Remember create_package package right ?
 Now inpsect [create_package github repo](https://github.com/lologibus2/create_package) and run
 
 ```bash
-pip install git+git://github.com/lologibus2/create_package.git
+pip install git+git://github.com/lologibus2/wagon_tools.git
 ```{{execute}}
 
 Run it using ipython or a notebook:
 
 ```bash
-from create_package.lib import get_data
+ipython
+```{{execute}}
+
+```bash
+from wagon_tools.lib import get_data
 get_data()
 ```{{execute}}
+
+Exit the REPL
+
+```bash
+ipython
+```{{execute}}
+
 
 ## Share your own library
 You just understood how to opensource your package right ?
@@ -33,17 +49,28 @@ You just understood how to opensource your package right ?
 You will now share your first package with all your colleagues.
 Your colleagues will install your package and run:
 
+
 ```python
 from yourpackage.lib import try_me
 ```{{execute}}
 
+```bash
+cd ~/sandbox/04-Share-your-code
+```{{execute}}
+
+
 Create a project with `wagon-make-package` command:
 - Name it as you please (avoid using dashes `-` in the name of your package, this is against conventions and makes importing your package harder)
-- Create it outside of the `data-challenges` folder
+
+```bash
+wagon-make-package my_new_package
+```{{execute}}
+
 - Add a `try_me()` function to `lib.py` file
 - Insert any code you want in that function, try being inventive
 - Create a [new public (obviously) repository](https://github.com/new) on github named after your package name
 - Choose `…or push an existing repository from the command line`:
+
 
 ```bash
 git remote add origin git@github.com:GIT_USER_NAME/PACKAGE_NAME.git

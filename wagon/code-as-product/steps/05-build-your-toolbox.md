@@ -6,7 +6,16 @@ Every time you spend time implementing cool functions, just add it to a file ins
 
 ## First steps
 
+```bash
+cd ~/sandbox/04-Share-your-code
+```{{execute}}
+
 - Create a project with `wagon-make-package` command
+
+```bash
+wagon-make-package my_new_package
+```{{execute}}
+
 - Create a repository on GitHub
 - Start filling in your package with awesome functions you already used
 
