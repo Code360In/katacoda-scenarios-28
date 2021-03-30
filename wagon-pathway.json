@@ -9,14 +9,19 @@
       "description": "code-as-product"
     },
     {
-      "course_id": "iteration",
-      "title": "iteration",
-      "description": "iteration"
-    },
-    {
       "course_id": "pipelines",
       "title": "pipelines",
       "description": "pipelines"
+    },
+    {
+      "course_id": "pipelines_recap",
+      "title": "Pipelines Recap",
+      "description": "Recap for the pipelines"
+    },
+    {
+      "course_id": "iteration",
+      "title": "iteration",
+      "description": "iteration"
     }
   ]
 }
