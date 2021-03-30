@@ -14,7 +14,7 @@ ipython
 ```
 import pandas as pd
 df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train_500.csv', nrows=100 )
-```{{copy}}
+```{{execute}}
 
 Note: nrows=100. The dataset is 5.1GB!  Avoiding to load it all in memory.
 
@@ -22,8 +22,11 @@ Note: nrows=100. The dataset is 5.1GB!  Avoiding to load it all in memory.
 
 ```
 df.head().T # short for df.head().transpose()
+```{{execute}}
+
+```
 df.describe().T
-```{{copy}}
+```{{execute}}
 
 
 ## Split into training and test data
@@ -43,18 +46,18 @@ from sklearn.model_selection import train_test_split
 X = df.drop('fare_amount', axis=1)
 y = df['fare_amount']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.1, random_state=42)
-```{{copy}}
+```{{execute}}
 
 
 ### check shape of data
 
 ```
 X_train.shape, X_test.shape, y_train.shape, y_test.shape
-```{{copy}}
+```{{execute}}
 
 ```
 df.shape
-```{{copy}}
+```{{execute}}
 
 
 ## Preprocessing
@@ -88,7 +91,7 @@ def minkowski_distance(start,end, p):
     return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
 
 
-```{{copy}}
+```{{execute}}
 
 
 ### Creating new columns
@@ -107,7 +110,7 @@ def preprocess(df):
     return res[["distance"]]
 
 
-```{{copy}}
+```{{execute}}
 
 ### Apply preprocessing
 
@@ -118,7 +121,7 @@ X_train_preproc = preprocess(X_train)
 print(X_train_preproc)
 
 
-```{{copy}}
+```{{execute}}
 
 Only one column, distance.
 
@@ -137,7 +140,7 @@ reg.fit(X=X_train_preproc, y=y_train)
 print(reg.estimators_)
 
 
-```{{copy}}
+```{{execute}}
 
 
 ## Saving the model to disk
@@ -155,5 +158,5 @@ joblib.dump(reg, model_name)
 print("-- model saved to disk")
 
 
-```{{copy}}
+```{{execute}}
 
