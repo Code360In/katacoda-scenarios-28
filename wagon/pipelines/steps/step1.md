@@ -1,40 +1,32 @@
 
-## Prepare the environment
+## Let's work in interactive mode
+
+(the exact same steps can be run in a google colab environnement)
 
 ```
-# train 0
-clear
-mkdir pipelines && cd pipelines
-touch training.py
-python training.py
+ipython
 ```{{execute}}
 
-## Fetch data from the taxi-fare kaggle dataset
+## The taxi-fare kaggle dataset
+
+### Import data
 
 ```
-# train 1
 import pandas as pd
-df = pd.read_csv('s3://wagon-public-datasets/taxi-fare-train.csv', nrows=100)
-
-
+df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train_500.csv', nrows=100 )
 ```{{copy}}
 
 Note: nrows=100. The dataset is 5.1GB!  Avoiding to load it all in memory.
 
-
-## Check data
+### Explore data
 
 ```
-# train 2
-print("---dataframe----")
-print(df.head().T)
-print(df.describe().T)
-
-
+df.head().T # short for df.head().transpose()
+df.describe().T
 ```{{copy}}
 
 
-## Get training and test data
+## Split into training and test data
 
 How much is the car ride going to cost depending on :
 - pickup point
@@ -47,28 +39,21 @@ How much is the car ride going to cost depending on :
 - 10% of the data
 
 ```
-# train 3
-print("---splitting data----")
 from sklearn.model_selection import train_test_split
 X = df.drop('fare_amount', axis=1)
 y = df['fare_amount']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.1, random_state=42)
-
-
 ```{{copy}}
 
 
-
-
-## check shape of data
+### check shape of data
 
 ```
-# train 4
-print("---shape of data----")
-print(df.shape)
-print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
+X_train.shape, X_test.shape, y_train.shape, y_test.shape
+```{{copy}}
 
-
+```
+df.shape
 ```{{copy}}
 
 
@@ -78,7 +63,7 @@ print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 #### Minkowski Distance
 
 Yesterday was **haversine** distance which takes into account curvature of the earth. Important for long distances like distance from NY to Los Angeles.
-=> [Google maps](https://www.google.com/maps/@45.305025,-89.0979114,3.23z), zoom out, activate globe
+=> [Google maps](https://www.google.com/maps/@42.6196579,-74.4217418,3.03z), zoom out, activate globe
 
 With a taxi ride, the distance between pick up and drop off point remain relatively small.
 =>
@@ -97,7 +82,6 @@ With a taxi ride, the distance between pick up and drop off point remain relativ
 - p=1 => manhattan
 
 ```
-# train 5
 def minkowski_distance(start,end, p):
     (x1, y1) = start
     (x2, y2) = end

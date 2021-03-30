@@ -10,11 +10,7 @@
     },
     "steps": [
       {
-        "title": "Recap",
-        "text": "steps/recap.md"
-      },
-      {
-        "title": "Train a model and save it to disk",
+        "title": "Kaggle Taxi Fare",
         "text": "steps/step1.md"
       },
       {
