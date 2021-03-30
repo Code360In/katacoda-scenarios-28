@@ -1,84 +1,86 @@
 
-## Let's work in interactive mode
+## Travaillons en mode interactif
 
-(the exact same steps can be run in a google colab environnement)
+(les mêmes étapes peuvent être suivient dans un environnement google colab)
 
 ```
 ipython
 ```{{execute}}
 
-## The taxi-fare kaggle dataset
+## Le dataset des frais de taxis de Kaggle (taxi-fare kaggle dataset)
 
-### Import data
+### Importer les données
 
 ```
 import pandas as pd
 df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train_500.csv', nrows=100 )
-```{{execute}}
+```{{copy}}
 
-Note: nrows=100. The dataset is 5.1GB!  Avoiding to load it all in memory.
+Note: nrows=100. Le dataset original fait 5.1GB! Il vaut mieux eviter de loader cela en mémoire.
 
-### Explore data
+### Exploration des données
 
 ```
 df.head().T # short for df.head().transpose()
-```{{execute}}
+```{{copy}}
 
 ```
 df.describe().T
-```{{execute}}
+```{{copy}}
 
 
-## Split into training and test data
+## Diviser en données d'entraînement et de Validation
 
-How much is the car ride going to cost depending on :
-- pickup point
-- dropoff point
-- number of passengers
+Combien coûte un trajet en taxi dépend de:
+- point de départ (pickup point)
+- point d'arrivée (dropoff point)
+- nombre de passagers (passenger count)
 
 
-=> train_test_split
-- creating y to test predictions
-- 10% of the data
+=> sklearn.model_selection.train_test_split
+- définir un y pour tester les prédictions
+- mettre de côté 10% des données pour la validation.
 
 ```
 from sklearn.model_selection import train_test_split
 X = df.drop('fare_amount', axis=1)
 y = df['fare_amount']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.1, random_state=42)
-```{{execute}}
+```{{copy}}
 
 
-### check shape of data
+### Vérifions la forme des données
 
 ```
 X_train.shape, X_test.shape, y_train.shape, y_test.shape
-```{{execute}}
+```{{copy}}
 
 ```
 df.shape
-```{{execute}}
+```{{copy}}
 
 
-## Preprocessing
+## Pré-traitement
 
 
-#### Minkowski Distance
+#### Distance Minkowski
 
-Yesterday was **haversine** distance which takes into account curvature of the earth. Important for long distances like distance from NY to Los Angeles.
-=> [Google maps](https://www.google.com/maps/@42.6196579,-74.4217418,3.03z), zoom out, activate globe
+Dans les exercices de la semaine dernière, il a été fait mention de la distance **haversine** qui prend en compte la curvature de la planète terre. Il est important de tenir compte de cette curvature pour des longues distances comme de NY à Los Angeles.
 
-With a taxi ride, the distance between pick up and drop off point remain relatively small.
+=> [Google maps](https://www.google.com/maps/@40.7634127,-73.9638161,9.75z), zoom out jusqu'au globe
+
+Mais pour un trajet en taxi, la distance entre le point de départ et le point d'arrivée reste relativement courte.
+
 =>
-- straightline
-- [Manhanttan on the map](https://www.google.com/maps/@40.7762803,-73.930264,12.1z)
-- Why is it called manhattan?
+- ligne droite
+- [Manhanttan sur la carte](https://www.google.com/maps/@40.7762803,-73.930264,12.1z)
+- Pourquoi l'appele-t-on distance "Manhattan"?
 ![](https://static.packt-cdn.com/products/9781787121515/graphics/bd978c4c-8251-489d-bcda-5ce7b7b825dd.png)
-- Manhattan distance illustrated
+- La distance Manhattan illustratée
 ![](https://www.simsoup.info/SimSoup/Manhattan_Distance_Illustration.png)
 
 
-#### Minkowski as a generalisation
+#### Minkowski comme géneralisation
 
 ![](https://prismoskills.appspot.com/lessons/2D_and_3D_Puzzles/imgs/Manhattan_and_Euclidean.png)
 - p=2 => euclidian
@@ -86,77 +88,69 @@ With a taxi ride, the distance between pick up and drop off point remain relativ
 
 ```
 def minkowski_distance(start,end, p):
-    (x1, y1) = start
-    (x2, y2) = end
-    return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+  (x1, y1) = start
+  (x2, y2) = end
+  return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+
+```{{copy}}
 
 
-```{{execute}}
+### Créons de nouvelles colonnes
 
-
-### Creating new columns
-
-Preprocess function takes the dataset as input and
+Les fonctions de pré-traitement prennent le set de données comme input et fournissent les valeurs pour une nouvelle colonne, distance
 
 ```
-# train 6
 def preprocess(df):
-    """add a column with the manhattan distance"""
-    x1, y1 = df["pickup_longitude"], df["pickup_latitude"]
-    x2, y2 = df["dropoff_longitude"], df["dropoff_latitude"]
-    distance = minkowski_distance((x1, y1),(x2, y2), p=2)
-    res = df.copy()
-    res["distance"] = distance
-    return res[["distance"]]
+  """add a column with the manhattan distance"""
+  x1, y1 = df["pickup_longitude"], df["pickup_latitude"]
+  x2, y2 = df["dropoff_longitude"], df["dropoff_latitude"]
+  distance = minkowski_distance((x1, y1),(x2, y2), p=2)
+  res = df.copy()
+  res["distance"] = distance
+  return res[["distance"]]
 
+```{{copy}}
 
-```{{execute}}
-
-### Apply preprocessing
+### Applicons le pré-traitement
 
 ```
-# train 7
-print("---preprocess training set----")
 X_train_preproc = preprocess(X_train)
-print(X_train_preproc)
+X_train_preproc
+```{{copy}}
+
+Une seule colonne, la distance.
+
+On peut utiliser ce seul attribut pour créer un modèle.
 
 
-```{{execute}}
+### Entraînement du modèle
 
-Only one column, distance.
-
-Using this single feature to create a model.
-
-### Training a model
-
-Using _RandomForestRegressor_ and fitting it with x_train and y_train
+On Utilise _RandomForestRegressor_ et on le fait tourner avec x_train et y_train
 
 ```
-# train 8
-print("---random forest regressor----")
 from sklearn.ensemble import RandomForestRegressor
 reg = RandomForestRegressor()
 reg.fit(X=X_train_preproc, y=y_train)
-print(reg.estimators_)
+reg.estimators_
 
 
-```{{execute}}
+```{{copy}}
 
 
-## Saving the model to disk
+## Persistons le modèle sur un disque.
 
-joblib let you persist a model and save it to disk.
+joblib est une librairie qui permet de persister un modèle et de le sauver sur un disque.
 
-Saved the type of model and all the parameters defining the model.
-=> can reuse it by simply loading the file
+Sauver le type de modèle et tous les paramètres definissant le modèle.
+
+=> On va pouvoir réutiliser le modèle en loadant le fichier.
 
 ```
-# train 9
 import joblib
 model_name = 'model.joblib'
 joblib.dump(reg, model_name)
 print("-- model saved to disk")
 
 
-```{{execute}}
+```{{copy}}
 
