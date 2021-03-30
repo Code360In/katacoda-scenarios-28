@@ -131,7 +131,13 @@ On peut utiliser ce seul attribut pour créer un modèle.
 
 On utilise l'algorithme [_RandomForestRegressor_](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) et on lui présente `X_train_preproc` et `y_train`
 
-> A random forest is a supervised machine learning algorithm that is constructed from decision tree algorithms.
+> A random forest is a supervised machine learning algorithm that is constructed from decision tree algorithms. It can perform both regression and classification tasks.
+
+En détail: [Random forests outline](https://www.researchgate.net/figure/Random-forests-outline-The-process-starts-with-the-original-data-as-the-input-matrix-In_fig5_273349099)
+
+Dérivation automatique des critères de décision. Ainsi qu'une méthode d'ensemble pour éviter un overfitting aux données d'entraînement.
+
+![](https://www.section.io/engineering-education/introduction-to-random-forest-in-machine-learning/example-of-decision-tree.png)
 
 ```
 from sklearn.ensemble import RandomForestRegressor
@@ -150,9 +156,11 @@ reg.estimators_
 ```{{copy}}
 
 
-## Persistons le modèle sur un disque.
+## Persistons le modèle sur notre disque dur
 
-joblib est une librairie qui permet de persister un modèle et de le sauver sur un disque.
+[`joblib`](https://joblib.readthedocs.io/en/latest/) est une librairie qui permet de persister un modèle et de le sauver sur un disque.
+
+> Joblib is a set of tools to provide lightweight pipelining in Python. In particular: (1) transparent disk-caching of functions and lazy re-evaluation (memoize pattern) and (2) easy simple parallel computing
 
 Sauver le type de modèle et tous les paramètres definissant le modèle.
 
