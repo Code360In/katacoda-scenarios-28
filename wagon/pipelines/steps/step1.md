@@ -13,10 +13,10 @@ ipython
 
 ```
 import pandas as pd
-df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train_500.csv', nrows=100 )
+df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv', nrows=100 )
 ```{{copy}}
 
-Note: nrows=100. Le dataset original fait 5.1GB! Il vaut mieux eviter de loader cela en mémoire.
+Note: nrows=100. Le dataset original fait plus de 5GB! Il vaut mieux éviter de loader cela en mémoire.
 
 ### Exploration des données
 
@@ -31,7 +31,7 @@ df.describe().T
 
 ## Diviser en données d'entraînement et de Validation
 
-Combien coûte un trajet en taxi dépend de:
+Le coût d'un trajet en taxi dépend de:
 - point de départ (pickup point)
 - point d'arrivée (dropoff point)
 - nombre de passagers (passenger count)
@@ -52,7 +52,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.1, random_s
 ### Vérifions la forme des données
 
 ```
-X_train.shape, X_test.shape, y_train.shape, y_test.shape
+X_train.shape, y_train.shape
+```{{copy}}
+
+```
+X_test.shape , y_test.shape
 ```{{copy}}
 
 ```
@@ -67,7 +71,7 @@ df.shape
 
 Dans les exercices de la semaine dernière, il a été fait mention de la distance **haversine** qui prend en compte la curvature de la planète terre. Il est important de tenir compte de cette curvature pour des longues distances comme de NY à Los Angeles.
 
-=> [Google maps](https://www.google.com/maps/@40.7634127,-73.9638161,9.75z), zoom out jusqu'au globe
+=> [Google map](https://www.google.com/maps/@40.7634127,-73.9638161,9.75z), zoom out jusqu'au globe
 
 Mais pour un trajet en taxi, la distance entre le point de départ et le point d'arrivée reste relativement courte.
 
@@ -111,7 +115,7 @@ def preprocess(df):
 
 ```{{copy}}
 
-### Applicons le pré-traitement
+### Appliquons le pré-traitement
 
 ```
 X_train_preproc = preprocess(X_train)
@@ -125,15 +129,24 @@ On peut utiliser ce seul attribut pour créer un modèle.
 
 ### Entraînement du modèle
 
-On Utilise _RandomForestRegressor_ et on le fait tourner avec x_train et y_train
+On utilise l'algorithme [_RandomForestRegressor_](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) et on lui présente `X_train_preproc` et `y_train`
+
+> A random forest is a supervised machine learning algorithm that is constructed from decision tree algorithms.
 
 ```
 from sklearn.ensemble import RandomForestRegressor
 reg = RandomForestRegressor()
 reg.fit(X=X_train_preproc, y=y_train)
+```{{copy}}
+
+Vérifions les paramètres
+```
+reg.get_params()
+```{{copy}}
+
+
+```
 reg.estimators_
-
-
 ```{{copy}}
 
 
@@ -149,8 +162,11 @@ Sauver le type de modèle et tous les paramètres definissant le modèle.
 import joblib
 model_name = 'model.joblib'
 joblib.dump(reg, model_name)
-print("-- model saved to disk")
+```{{copy}}
 
+Vérifions qu'il est bien sauvé.
 
+```
+ls -al
 ```{{copy}}
 
