@@ -1,5 +1,5 @@
 
-### Commençons avec un nouvel environnement
+## Commençons avec un nouvel environnement
 
 ```
 ipython
@@ -179,6 +179,8 @@ Si on effectue une mise en échelle, il peut être nécessaire de  dériver et c
 
 ### Example: implémentons un standard scaler customisé
 
+Il faut définir une classe qui hérite de BaseEstimator, TransformerMixin
+
 ```
 from sklearn.base import BaseEstimator, TransformerMixin
 
@@ -246,7 +248,7 @@ class TimeFeatures(BaseEstimator, TransformerMixin):
       X.index = pd.to_datetime(X[self.time_column])
       X.index = X.index.tz_convert(self.time_zone_name)
       X["hour"] = X.index.hour
-      return X[["hour"]].reset_index(drop=True)
+      return X
 ```{{copy}}
 
 Créons une instance de la classe.
@@ -255,16 +257,20 @@ Créons une instance de la classe.
 feat_encoder = TimeFeatures(time_column='pickup_datetime', time_zone_name='America/Los_Angeles')
 ```{{copy}}
 
-#### Executer la pipeline - Fit et Transform
+#### Exécuter la pipeline - Fit et Transform
+
+"Fit" de note pipeline (même si dans ce cas aucune opération n'est effecctuée)
 
 ```
-# feature 6c
-# Fit our pipeline (even if it does nothing here)
-feat_encoder.fit(df)
-
-# Transform
-timeFeat = feat_encoder.transform(df)
-print(timeFeat)
+feat_encoder.fit(X_train)
 ```{{copy}}
 
-=> I can now apply different transformations on different columns
+Transform
+
+```
+X_train = df.drop(['fare_amount', 'key'], axis=1)
+X_processed = feat_encoder.transform(X_train)
+X_processed[["hour"]]
+```{{copy}}
+
+=> Il est maintenant possible d'appliquer des transformations différentes sur différentes colonnes
