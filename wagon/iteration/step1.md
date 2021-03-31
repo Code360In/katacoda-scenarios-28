@@ -1,9 +1,13 @@
-# Iterations
 
 ## Prerequisites
 
 ```
 pip install mlflow
+```{{execute}}
+
+We will also use these
+
+```
 pip install category_encoders
 pip install pygeohash
 pip install memoized_property
@@ -25,12 +29,18 @@ mlflow ui
 
 => problem accessing localhost in Kataconda.
 
-- run `mlflow ui` on my laptop's command line.
 - Tunnel it to a public address.
+
+New Terminal
+
+```
+curl https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o ngrok-stable-linux-amd64.zip
+unzip ngrok-stable-linux-amd64.zip
+```{{execute T2}}
 
 ```
 ./ngrok http 5000
-```
+```{{execute}}
 
 # console
 
