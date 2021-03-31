@@ -7,12 +7,8 @@
 ## Prepare the environment
 
 ```
-# feature 0
-clear
-touch recap.py
-python recap.py
+ipython
 ```{{execute}}
-```
 
 # Recap
 
@@ -42,7 +38,7 @@ Now we are going to use Pandas to read and explore the datasets.
 ```
 import pandas as pd
 ```{{copy}
-```
+
 
 The training dataset is relatively big (~5GB).
 So let's only open a portion of it.
@@ -54,7 +50,7 @@ So let's only open a portion of it.
 url = 's3://wagon-public-datasets/taxi-fare-train.csv'
 df = pd.read_csv(url, nrows=1000000)
 ```{{copy}
-```
+
 
 Now let's display the first rows to understand the different fields
 
@@ -77,7 +73,7 @@ plt.rcParams['font.size'] = 14
 plt.figure(figsize=(12,5))
 palette = sns.color_palette('Paired', 10)
 ```{{copy}
-```
+
 
 
 ### There are multiple things we want to do in terms of data exploration.
@@ -96,7 +92,7 @@ palette = sns.color_palette('Paired', 10)
 ```
 df.fare_amount.describe()
 ```{{copy}
-```
+
 
 
 ```
@@ -108,7 +104,7 @@ def plot_dist(series=df["fare_amount"], title="Fare Distribution"):
     plt.show()
 plot_dist()
 ```{{copy}
-```
+
 
 
 ```
@@ -116,7 +112,7 @@ plot_dist()
 df = df[df.fare_amount.between(0, 6000)]
 plot_dist(df.fare_amount)
 ```{{copy}
-```
+
 
 ```
 # We can also visualise binned fare_amount variable
@@ -128,14 +124,14 @@ df.loc[df['fare-bin'] == 'nan', 'fare-bin'] = '[45+]'
 # Adjust bin so the sorting is correct
 df.loc[df['fare-bin'] == '(5, 10]', 'fare-bin'] = '(05, 10]'
 ```{{copy}
-```
+
 
 ```
 sns.catplot(x="fare-bin", kind="count", palette=palette, data=df, height=5, aspect=3);
 sns.despine()
 plt.show()
 ```{{copy}
-```
+
 
 ### Explore other variables
 
@@ -149,7 +145,7 @@ plt.show()
 ```
 df.passenger_count.describe()
 ```{{copy}
-```
+
 
 ```
 sns.catplot(x="passenger_count", kind="count", palette=palette, data=df, height=5, aspect=3);
@@ -157,7 +153,7 @@ sns.despine()
 plt.title('Passenger Count');
 plt.show()
 ```{{copy}
-```
+
 
 
 #### Pickup Datetime
@@ -178,14 +174,14 @@ def extract_time_features(df):
     df["year"] = df.index.year
     return df.reset_index(drop=True)
 ```{{copy}
-```
+
 
 
 ```
 # %%time
 df = extract_time_features(df)
 ```{{copy}
-```
+
 
 ```
 # hour of day
