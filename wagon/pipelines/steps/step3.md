@@ -1,13 +1,10 @@
 
 > Reuse transformations across projects.
 
-## Prepare the environment
+### Commençons avec un nouvel environnement
 
 ```
-# pipeline 0a
-clear
-touch pipeline.py
-python pipeline.py
+ipython
 ```{{execute}}
 
 
@@ -30,71 +27,77 @@ pipe.fit(X_train, y_train)
 y_pred = pipe.predict(X_test)
 ```
 
-The pipeline does not behave quite the same way when doing the fit and the prediction
+La pipeline ne se comporte pas vraiment de la même manière quand on fait le fit et la prédiction
 
-## What happens on a fit for a standard scaler
+## Que se passe-t-il sur un fit pour un StandardScaler
 
-### Train and Test Data
+### Données d'entraînement et de validation
 
 ```
-# pipeline 1a
 import numpy as np
 train_data = np.array([[1, 10], [2, -1], [0, 22], [3, 15]])
 test_data = np.array([[2, 1], [5, 1], [3, 55], [3, 1]])
 ```{{copy}}
 
 ```
-# pipeline 1b
-print("--train data--")
-print(train_data, "\n")
-print("--test data--")
-print(test_data)
+train_data
+```{{copy}}
+
+
+```
+test_data
 ```{{copy}}
 
 ### Scaler
 
 ```
-# pipeline 2a
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaler.fit(train_data)
-# => StandardScaler(copy=True, with_mean=True, with_std=True)
 ```{{copy}}
 
-When doing a fit, it takes into account the mean and the variance.
-But it is computed only from the training set.
-Then applied on the test set when making predictions.
-
-(the training data are meant to correspond to population when the test data are only a random sample)
+```
+scaler.get_params()
+```{{copy}}
 
 ```
-# pipeline 2b
-print("--scaler--")
-print(scaler.scale_)
+StandardScaler(copy=True, with_mean=True, with_std=True)
+```
+
+Quand on construit un modèle (`fit`), la pipeline prend en compte la moyenne et la variance. Mais elle est calculée uniquement sur base des données d'entraînement. Dans la phase de validation ou de prédiction, la moyenne et la variance des données d'entraînement sont utilisées pour une mise à l'échelle.
+
+(les données d'entraînement sont traitées comme population alors que les données test sont traitées comme un échantillon aléatoire)
+
+```
+scaler.scale_
 ```{{copy}}
 
 
-### Variations between Train and Test Data
+### Variations entre données d'Entraînement et de Validation
 
-Mean of each columns is obviously different from training to test set
+La moyenne pour chaque colonne est de toute évidence différente  pour le set de données d'Entraînement et de Validation
+
 
 ```
-# pipeline 3
-print(train_data.mean(axis=0), test_data.mean(axis=0))
+train_data.mean(axis=0), test_data.mean(axis=0)
 ```{{copy}}
 
-### Scaling
+### Mise à l'échelle (Scaling)
+
+scaled_train_data
 
 ```
-# pipeline 4
-print("--scaled_train_data--")
 scaled_train_data = scaler.transform(train_data)
-print(scaled_train_data)
-
-print("--test--")
-scaled_test_data = scaler.transform(test_data)
-print(scaled_test_data)
+scaled_train_data
 ```{{copy}}
 
-=> Fitting data transformers with trained data
-=> Applying transformers on test data.
+
+scaled_test_data
+
+```
+scaled_test_data = scaler.transform(test_data)
+scaled_test_data
+```{{copy}}
+
+=> Dériver des convertisseurs (transformers) de données sur les données d'entraînement
+=> Appliquer ces convertisseurs (transformers) sur les données de validation.

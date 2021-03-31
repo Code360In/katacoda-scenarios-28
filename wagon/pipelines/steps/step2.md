@@ -1,36 +1,50 @@
-## Prepare the environment
+### Commençons avec un nouvel environnement
 
 ```
-# predict 0.1
-clear
-touch validation.py
-python validation.py
+exit()
+```{{execute}}
+
+```
+curl https://clients.widged.com/ynov/ai-and-cloud/d8/model.joblib > model.joblib
+```{{execute}}
+
+```
+ipython
 ```{{execute}}
 
 
-### Load the model from disk
+### Chargeons le modèle avec joblib
 
 
 ```
-# predict 1a
 import joblib
 model_name = 'model.joblib'
 loaded_model = joblib.load(model_name)
 ```{{copy}}
 
+Vérifions que c'est bien le même modèle
+
 ```
-# predict 1b
-print("\n\n","---model loaded from disk----")
-print(loaded_model.estimators_)
+loaded_model.get_params()
+```{{copy}}
+
+Les critères d'estimation
+
+```
+loaded_model.estimators_
 ```{{copy}}
 
 
-### Attempt a prediction
+### Tentons une prédiction
+
+Ici on répête les étapes précédentes
 
 ```
-# predict 2a
 import pandas as pd
-df = pd.read_csv('s3://wagon-public-datasets/taxi-fare-train.csv', nrows=100)
+df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv', nrows=100 )
+```{{copy}}
+
+```
 from sklearn.model_selection import train_test_split
 X = df.drop('fare_amount', axis=1)
 y = df['fare_amount']
@@ -39,60 +53,89 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.1, random_s
 
 
 ```
-# predict 2b
 y_pred = loaded_model.predict(X_test)
-print("\n\n",y_pred)
-
-
+y_pred
 ```{{copy}}
 
-### Error because the data have not been preprocessed
+### UhOh! Erreur!
 
-UhOh. Beginner error
+Quel est le problème à votre avis?
+
+Lisons le message d'erreur...
+
 > ValueError: could not convert string to float: '2013-07-08 21:24:00.00000048'
 
-We did not apply the same preprocessing steps!
+Nous avous oublié d'appliquer les étapes de préprocessing!
 
 
 ```
-# predict 3a
 def minkowski_distance(start,end, p):
-    (x1, y1) = start
-    (x2, y2) = end
-    return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+  (x1, y1) = start
+  (x2, y2) = end
+  return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+```{{copy}}
 
+```
 def preprocess(df):
-    """add a column with the manhattan distance"""
-    x1, y1 = df["pickup_longitude"], df["pickup_latitude"]
-    x2, y2 = df["dropoff_longitude"], df["dropoff_latitude"]
-    distance = minkowski_distance((x1, y1),(x2, y2), p=2)
-    res = df.copy()
-    res["distance"] = distance
-    return res[["distance"]]
+  """add a column with the manhattan distance"""
+  x1, y1 = df["pickup_longitude"], df["pickup_latitude"]
+  x2, y2 = df["dropoff_longitude"], df["dropoff_latitude"]
+  distance = minkowski_distance((x1, y1),(x2, y2), p=2)
+  res = df.copy()
+  res["distance"] = distance
+  return res[["distance"]]
 ```{{copy}}
 
 
 ```
-# predict 3b
-
 X_test_preproc = preprocess(X_test)
-y_pred = loaded_model.predict(X_test_preproc)
-print("\n\n",y_pred)
+X_test_preproc.head()
 ```{{copy}}
 
-=> We have a prediction
+Ok, on a les attributs (features) du modèle dans le format attendu. Re-essayons une prédiction.
+
+```
+y_pred = loaded_model.predict(X_test_preproc)
+y_pred
+```{{copy}}
+
+
+
+=> Nous avons une prédiction du coût en fonction de la distance
 
 ```
 [13.4124  4.5555  5.981  11.477   5.344  13.75    5.11    8.472   6.547
   5.11  ]
 ```
 
+Et le coût en fonction de la distance
 
-### Model Evaluation
 
-We did a lot of copy/paste of the code.
+```
+pd.concat([pd.DataFrame(X_test_preproc.to_numpy(), columns=['distance']), pd.DataFrame(y_pred, columns=['fare_predicted'])], axis=1)
+```{{copy}}
 
-Running a prediction over a model should look something like that
+Output:
+
+```
+   distance  fare_predicted
+0  0.058789          12.860
+1  0.002247           4.840
+2  0.010245           5.730
+3  0.023348          12.000
+4  0.011100           4.980
+5  0.032301          14.713
+6  0.009260           5.020
+7  0.017435           8.150
+8  0.016020           7.620
+9  0.009436           5.020
+```
+
+### Evaluation du modèle
+
+On a fait bcp de copier/coller de code.
+
+En pseudocode, effectuer une prédiction devrait inclure les étapes suivantes:
 
 ```
 # -- preprocess --
@@ -104,10 +147,10 @@ model = joblib.load('model.joblib')
 
 # -- predict --
 predictedFare = model.predict(X)
-print("\n\n",predictedFare)
+predictedFare
 ```{{copy}}
 
-Somehow, different pipelines
+Ce sont en fait deux pipelines différentes
 
 ```
 |=> preprocess data  |

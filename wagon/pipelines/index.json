@@ -10,11 +10,11 @@
     },
     "steps": [
       {
-        "title": "Kaggle Taxi Fare",
+        "title": "Entraîner une modèle simple",
         "text": "steps/step1.md"
       },
       {
-        "title": "Make predictions with a saved model",
+        "title": "Loader un Modèle sauvé sur le disque dur",
         "text": "steps/step2.md"
       },
       {

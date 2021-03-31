@@ -1,25 +1,9 @@
 
-## Prepare the environment
+### Commençons avec un nouvel environnement
 
 ```
-# feature 0
-clear
-touch features.py
-python features.py
+ipython
 ```{{execute}}
-
-```
-# transformer 1.0
-#--start:dependencies---------------
-import pandas as pd
-
-def minkowski_distance(start,end, p):
-    (x1, y1) = start
-    (x2, y2) = end
-    return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
-
-#--end:dependencies---------------
-```{{copy}}
 
 ## Time features
 
@@ -49,13 +33,24 @@ def feat_eng_on_date(df, col):
 
 ![](https://miro.medium.com/max/1400/1*Ztuopn00LqObHQb3v5r8aQ.png)
 
+```
+def minkowski_distance(start,end, p):
+    (x1, y1) = start
+    (x2, y2) = end
+    return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+
+```{{copy}}
+
 
 ## Extracting a few features
 
+Repartons des données taxifare
+
 ```
-# feature 2a
-df = pd.read_csv('s3://wagon-public-datasets/taxi-fare-train.csv', nrows=100)
-```{{copy}}
+import pandas as pd
+df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv', nrows=100 )
+df.head()
+```{{execute}}
 
 ```
 # feature 2b - time

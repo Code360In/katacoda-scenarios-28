@@ -1,5 +1,9 @@
 
-## Travaillons en mode interactif
+## Entraîner une modèle simple
+
+Exemple avec le dataset des frais de taxis de Kaggle (taxi-fare kaggle dataset)
+
+### Travaillons en mode interactif
 
 (les mêmes étapes peuvent être suivient dans un environnement google colab)
 
@@ -7,7 +11,6 @@
 ipython
 ```{{execute}}
 
-## Le dataset des frais de taxis de Kaggle (taxi-fare kaggle dataset)
 
 ### Importer les données
 
@@ -175,6 +178,8 @@ joblib.dump(reg, model_name)
 Vérifions qu'il est bien sauvé.
 
 ```
-ls -al
+!ls -al
 ```{{copy}}
 
+
+### Questions?
