@@ -37,7 +37,7 @@ Now we are going to use Pandas to read and explore the datasets.
 
 ```
 import pandas as pd
-```{{copy}
+```{{copy}}
 
 
 The training dataset is relatively big (~5GB).
@@ -48,14 +48,14 @@ So let's only open a portion of it.
 ```
 url = 'https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv'
 df = pd.read_csv(url, nrows=1000)
-```{{copy}
+```{{copy}}
 
 
 Now let's display the first rows to understand the different fields
 
 ```
 df.head(2).T
-```{{copy}
+```{{copy}}
 
 ## 2. Explore the data <a id='part2'></a>
 
@@ -71,7 +71,7 @@ plt.style.use('fivethirtyeight')
 plt.rcParams['font.size'] = 14
 plt.figure(figsize=(12,5))
 palette = sns.color_palette('Paired', 10)
-```{{copy}
+```{{copy}}
 
 
 
@@ -90,7 +90,7 @@ palette = sns.color_palette('Paired', 10)
 
 ```
 df.fare_amount.describe()
-```{{copy}
+```{{copy}}
 
 
 
@@ -102,7 +102,7 @@ def plot_dist(series=df["fare_amount"], title="Fare Distribution"):
     plt.title(title);
     plt.show()
 plot_dist()
-```{{copy}
+```{{copy}}
 
 
 
@@ -110,7 +110,7 @@ plot_dist()
 # drop absurd values
 df = df[df.fare_amount.between(0, 6000)]
 plot_dist(df.fare_amount)
-```{{copy}
+```{{copy}}
 
 
 ```
@@ -122,14 +122,14 @@ df.loc[df['fare-bin'] == 'nan', 'fare-bin'] = '[45+]'
 
 # Adjust bin so the sorting is correct
 df.loc[df['fare-bin'] == '(5, 10]', 'fare-bin'] = '(05, 10]'
-```{{copy}
+```{{copy}}
 
 
 ```
 sns.catplot(x="fare-bin", kind="count", palette=palette, data=df, height=5, aspect=3);
 sns.despine()
 plt.show()
-```{{copy}
+```{{copy}}
 
 
 ### Explore other variables
@@ -143,7 +143,7 @@ plt.show()
 
 ```
 df.passenger_count.describe()
-```{{copy}
+```{{copy}}
 
 
 ```
@@ -151,7 +151,7 @@ sns.catplot(x="passenger_count", kind="count", palette=palette, data=df, height=
 sns.despine()
 plt.title('Passenger Count');
 plt.show()
-```{{copy}
+```{{copy}}
 
 
 
@@ -172,14 +172,14 @@ def extract_time_features(df):
     df["month"] = df.index.month
     df["year"] = df.index.year
     return df.reset_index(drop=True)
-```{{copy}
+```{{copy}}
 
 
 
 ```
 # %%time
 df = extract_time_features(df)
-```{{copy}
+```{{copy}}
 
 
 ```
@@ -188,4 +188,4 @@ sns.catplot(x="hour", kind="count", palette=palette, data=df, height=5, aspect=3
 sns.despine()
 plt.title('Hour of Day');
 plt.show()
-```{{copy}
+```{{copy}}
