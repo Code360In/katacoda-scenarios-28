@@ -33,13 +33,6 @@ def feat_eng_on_date(df, col):
 
 ![](https://miro.medium.com/max/1400/1*Ztuopn00LqObHQb3v5r8aQ.png)
 
-```
-def minkowski_distance(start,end, p):
-    (x1, y1) = start
-    (x2, y2) = end
-    return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
-
-```{{copy}}
 
 
 ## Extracting a few features
@@ -49,49 +42,68 @@ Repartons des données taxifare
 ```
 import pandas as pd
 df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv', nrows=100 )
-df.head()
-```{{execute}}
+df.head().T
+```{{copy}}
+
+
+# Quelques variables dérivées de temps
 
 ```
-# feature 2b - time
 df['pickup_datetime'] = df.pickup_datetime.apply(pd.to_datetime)
+df.dtypes
+```{{copy}}
+
+
+```
 df['dow'] = df.pickup_datetime.dt.dayofweek
 df['hour'] = df.pickup_datetime.dt.hour
+df.head().T
+```{{copy}}
+
+# Quelques variables dérivées de distance
+
+```
+def minkowski_distance(start,end, p):
+  (x1, y1) = start
+  (x2, y2) = end
+  return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+
 ```{{copy}}
 
 ```
-# feature 2c - distance
 x1, y1 = df["pickup_longitude"], df["pickup_latitude"]
 x2, y2 = df["dropoff_longitude"], df["dropoff_latitude"]
 df['distance'] = minkowski_distance((x1, y1),(x2, y2), p=1)
+df.head().T
+
 ```{{copy}}
 
+## Passons toutes les variables disponibles en revue
 
 
 ```
-# feature 2d - features added
-print("--columns--")
-print(df.head().T)
-print(df.describe().T)
+df.describe().T
 ```{{copy}}
 
-## Dropping some columns
+## Laissons de côté quelques colonnes
 
 ```
-# feature 3
 X_train = df.drop(['fare_amount', 'key', 'pickup_datetime'], axis=1)
 y_train = df['fare_amount']
-print("--shapes--")
-print(X_train.shape)
-print(y_train.shape)
-print(df.head().T)
 ```{{copy}}
 
-
-## Creating a basic pipeline
+Forme des données
+```
+X_train.shape, y_train.shape
+```{{copy}}
 
 ```
-# feature 4a
+X_train.head().T
+```{{copy}}
+
+## Créons une pipeline toute simple
+
+```
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
@@ -103,79 +115,147 @@ pipe = Pipeline(steps=[
   ('regressor', RandomForestRegressor())])
 ```{{copy}}
 
-3 steps one after the other
-- imputer to fill all the empty data
-- scaler to normalize the data (only working with numbers)
-- apply random forest regression
+3 étapes successives:
+- `imputer` pour remplacer toute donnée qui serait manquante
+- `scaler` pour normalizer les données (s'applique seulement aux données numériques; si on avait des données texte, donnerait lieu à une erreur)
+- `regressor` applique une régression "Random Forest"
+
 
 ```
-# feature 4b
-print(pipe)
+pipe
 ```{{copy}}
 
 
-## Fitting it
+## Créer le modèle (fitting)
 
-Now fitting it with the data
+Créons le modèle sur base des données d'entraînement.
 
+Phase d'entraînement
 ```
-# feature 5
-# Train
 pipe.fit(X_train, y_train)
+```{{copy}}
 
-# Pred
+phase d'inférence
+
+```
 y_pred_train = pipe.predict(X_train)
-print(y_pred_train)
+y_pred_train
 ```{{copy}}
 
 
-Note : we applied the same transformations on all columns.
-
-Usually, we want to apply different types and sequences of information on different columns.
+Note : nous avons appliqué les mêmes transformations à toutes les colonnes. D'habitude, on veut appliquer des types et séquences de transformations différentes sur des types de colonnes.
 
 
-##  Integrate custom steps
+**Questions?**
 
-You have to use a class
-- inheriting from BaseEstimator and TransformerMixin
-- With a `fit` function and a `transform` function
+## Intégrer des étapes customisées
+
+Nous devons utiliser une classe
+- héritant de BaseEstimator et TransformerMixin
+- définissant une fonction `fit` et une function `transform`.
 
 ```
-# feature 6a
 from sklearn.base import BaseEstimator, TransformerMixin
 
 class TimeFeatures(BaseEstimator, TransformerMixin):
 
-    def __init__(self, time_column, time_zone_name='America/Los_Angeles'):
-        self.time_column = time_column
-        self.time_zone_name = time_zone_name
+  def __init__(self, time_column, time_zone_name='America/Los_Angeles'):
+      self.time_column = time_column
+      self.time_zone_name = time_zone_name
 
-    def fit(self, X, y=None):
-        return self
+  def fit(self, X, y=None):
+      return self
 
-    def transform(self, X, y=None):
-        assert isinstance(X, pd.DataFrame)
-        X.index = pd.to_datetime(X[self.time_column])
-        X.index = X.index.tz_convert(self.time_zone_name)
-        X["hour"] = X.index.hour
-        return X[["hour"]].reset_index(drop=True)
+  def transform(self, X, y=None):
+      assert isinstance(X, pd.DataFrame)
+      X.index = pd.to_datetime(X[self.time_column])
+      X.index = X.index.tz_convert(self.time_zone_name)
+      X["hour"] = X.index.hour
+      return X[["hour"]].reset_index(drop=True)
 ```{{copy}}
 
 
-If doing some scaling, we might need to capture some data during the fit (mean and variance for standardScaler), store them in the class,  reuse them in the transform.
+Si on effectue une mise en échelle, il peut être nécessaire de  dériver et capturer certains paramètres pendant la phase de fit (mean and variance for standardScaler), sauver leur étant dans la classe, les réutiliser dans la phase de transform.
 
-
-Implementing a standard scaler => video 00:39:01-00:48:00
-
-
-####  Implementing a custom feature
+### Example: implémentons un standard scaler customisé
 
 ```
-# feature 6b
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class CustomStandardScaler(BaseEstimator, TransformerMixin):
+```{{copy}}
+
+On en viendra a instantier cette classe de cette manière:
+
+```
+# no copy/paste
+taxifare_dataset_std_scaler = CustomStandardScaler()
+# training
+taxifare_dataset_std_scaler.fit(X_train)
+taxifare_dataset_std_scaler.transform(X_train)
+# inference
+taxifare_dataset_std_scaler.transform(X_test)
+```
+
+La classe doit avoir une méthode `__init__`
+
+```
+  def __init__(self):
+      pass
+```{{copy}}
+
+
+```
+  def fit(self, X, y=None):
+    # X is a multi-columns dataset, so we would
+    # need to store an array of values
+    self.mus = list()
+    self.sigmas = list()
+    for column in X:
+        self.mus.append(column.mean())
+        self.sigmas.append(column.std())
+    return self
+```{{copy}}
+
+Les valeurs sont attachées à self, qui encode l'état de l'instance courrante.
+
+```
+  def transform(self, X, y=None):
+    for i, column in enumerate(column):
+        self.mus.append(column.mean())
+        self.sigmas.append(column.std())
+    return (X - self.mus[i])/self.processed_sigma[i]
+```{{copy}}
+
+### Retournons au feature engineering
+
+```
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class TimeFeatures(BaseEstimator, TransformerMixin):
+
+  def __init__(self, time_column, time_zone_name='America/Los_Angeles'):
+      self.time_column = time_column
+      self.time_zone_name = time_zone_name
+
+  def fit(self, X, y=None):
+      return self
+
+  def transform(self, X, y=None):
+      assert isinstance(X, pd.DataFrame)
+      X.index = pd.to_datetime(X[self.time_column])
+      X.index = X.index.tz_convert(self.time_zone_name)
+      X["hour"] = X.index.hour
+      return X[["hour"]].reset_index(drop=True)
+```{{copy}}
+
+Créons une instance de la classe.
+
+```
 feat_encoder = TimeFeatures(time_column='pickup_datetime', time_zone_name='America/Los_Angeles')
 ```{{copy}}
 
-#### Instanciate the pipeline - Fit and Transform
+#### Executer la pipeline - Fit et Transform
 
 ```
 # feature 6c
