@@ -151,11 +151,10 @@ Deux pipelines
 dist_cols = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dropoff_longitude']
 time_cols = ['pickup_datetime']
 
-feat_eng_bloc = ColumnTransformer([
+feat_eng = ColumnTransformer([
   ('time', pipe_time, time_cols),
   ('distance', pipe_distance, dist_cols)])
-# remainder='passthrough'
-# This would keep the other columns
+  # remainder='passthrough' # This would keep the other columns
 ```{{copy}}
 
 **Note**
@@ -184,7 +183,7 @@ The pipeline takes the whole dataset as an input and produces a new feature (col
 
 ```
 pipe_cols = Pipeline(steps=[
-  ('feat_eng_bloc', feat_eng_bloc),
+  ('feat_eng', feat_eng),
   ('scaler', StandardScaler()), # should it be there?
   ('regressor', RandomForestRegressor())])
 

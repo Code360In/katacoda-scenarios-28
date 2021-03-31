@@ -157,7 +157,7 @@ Nous devons utiliser une classe
 ```
 from sklearn.base import BaseEstimator, TransformerMixin
 
-class TimeFeatures(BaseEstimator, TransformerMixin):
+class HourTransformer(BaseEstimator, TransformerMixin):
 
   def __init__(self, time_column, time_zone_name='America/Los_Angeles'):
       self.time_column = time_column
@@ -234,7 +234,7 @@ Les valeurs sont attachées à self, qui encode l'état de l'instance courrante.
 ```
 from sklearn.base import BaseEstimator, TransformerMixin
 
-class TimeFeatures(BaseEstimator, TransformerMixin):
+class HourTransformer(BaseEstimator, TransformerMixin):
 
   def __init__(self, time_column, time_zone_name='America/Los_Angeles'):
       self.time_column = time_column
@@ -254,7 +254,7 @@ class TimeFeatures(BaseEstimator, TransformerMixin):
 Créons une instance de la classe.
 
 ```
-feat_encoder = TimeFeatures(time_column='pickup_datetime', time_zone_name='America/Los_Angeles')
+feat_encoder = HourTransformer(time_column='pickup_datetime', time_zone_name='America/Los_Angeles')
 ```{{copy}}
 
 #### Exécuter la pipeline - Fit et Transform
