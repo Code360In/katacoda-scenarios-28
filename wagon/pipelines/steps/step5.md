@@ -34,15 +34,7 @@ class HourTransformer(BaseEstimator, TransformerMixin):
 ```{{copy}}
 
 
-minkowski_distance
 
-```
-def minkowski_distance(start,end, p):
-  (x1, y1) = start
-  (x2, y2) = end
-  return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
-
-```{{copy}}
 
 This will extract a single from the whole dataset feature to be used for training.
 
@@ -105,6 +97,15 @@ class HourTransformer(BaseEstimator, TransformerMixin):
 DistanceTransformer
 
 ```
+def minkowski_distance(start,end, p):
+  (x1, y1) = start
+  (x2, y2) = end
+  return ((abs(x2 - x1) ** p) + (abs(y2 - y1)) ** p) ** (1 / p)
+
+```{{copy}}
+
+
+```
 class DistanceTransformer(BaseEstimator, TransformerMixin):
 
     def __init__(self):
@@ -129,17 +130,19 @@ class DistanceTransformer(BaseEstimator, TransformerMixin):
 I can now create a number of new features derived from my dataset, here time and distance.
 
 ```
+from sklearn.pipeline import make_pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import RobustScaler
-from sklearn.pipeline import make_pipeline
 ```{{copy}}
 
 ```
 pipe_time = make_pipeline(HourTransformer(time_column='pickup_datetime'), StandardScaler())
+pipe_time
 ```{{copy}}
 
 ```
 pipe_distance = make_pipeline(DistanceTransformer(), RobustScaler())
+pipe_distance
 ```{{copy}}
 
 Deux pipelines
@@ -173,7 +176,7 @@ pipe_time = Pipeline(steps=[
 ])
 ```
 
-The first one is just more ocmpact
+The first one is just more compact
 
 The pipeline takes the whole dataset as an input and produces a new feature (column) as an output.
 
