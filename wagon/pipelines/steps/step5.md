@@ -131,16 +131,23 @@ I can now create a number of new features derived from my dataset, here time and
 ```
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import RobustScaler
-
-# feat engineering
 from sklearn.pipeline import make_pipeline
-pipe_time = make_pipeline(HourTransformer(time_column='pickup_datetime'), StandardScaler())
-pipe_distance = make_pipeline(DistanceTransformer(), RobustScaler())
+```{{copy}}
 
+```
+pipe_time = make_pipeline(HourTransformer(time_column='pickup_datetime'), StandardScaler())
+```{{copy}}
+
+```
+pipe_distance = make_pipeline(DistanceTransformer(), RobustScaler())
+```{{copy}}
+
+Deux pipelines
+
+```
 dist_cols = ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dropoff_longitude']
 time_cols = ['pickup_datetime']
 
-# two pipelines
 feat_eng_bloc = ColumnTransformer([
   ('time', pipe_time, time_cols),
   ('distance', pipe_distance, dist_cols)])
@@ -154,6 +161,7 @@ feat_eng_bloc = ColumnTransformer([
 pipe_time = make_pipeline(
   HourTransformer(time_column='pickup_datetime'),
   StandardScaler())
+pipe_time
 ```
 
 is exactly the same as
