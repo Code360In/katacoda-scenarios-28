@@ -7,42 +7,50 @@ pip install mlflow
 
 We will also use these
 
+
+
+
+
 ```
-pip install category_encoders
-pip install pygeohash
-pip install memoized_property
-clear
-```{{execute}}
+from  mlflow.tracking import MlflowClient
+
+EXPERIMENT_NAME = "model_experiment"
+
+client = MlflowClient()
+
+experiment_id = client.create_experiment(EXPERIMENT_NAME)
+
+for model in ["linear", "Randomforest"]:
+  run = client.create_run(experiment_id)
+  client.log_param(run.info.run_id, "model", model)
+  client.log_metric(run.info.run_id, "rmse", 4.5)
+```{{copy}}
+
+Let's replace "model_experiment" with "taxifaremodel"
+
+```
+taxifare model
+```{{copy}}
+
+We can log more parameters
+
+```
+client.log_param(run.info.run_id, "hyperparameters 1 lr", abc)
+client.log_param(run.info.run_id, "hyperparameters 2 lr", 3.5)
+client.log_param(run.info.run_id, "hyperparameters 3 rf", 1.3)
+```{{copy}}
+
+The hyperparameters are usually not the same for all models.
+
 
 # 1. Running it on localhost
-
-```
-mkdir mlflow && cd mlflow
-touch localhost.py
-python localhost.py
-```{{execute}}
-
 
 ```
 mlflow ui
 ```{{execute}}
 
-=> problem accessing localhost in Kataconda.
 
-- Tunnel it to a public address.
-
-New Terminal
-
-```
-curl https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o ngrok-stable-linux-amd64.zip
-unzip ngrok-stable-linux-amd64.zip
-```{{execute T2}}
-
-```
-./ngrok http 5000
-```{{execute}}
-
-# console
+## console
 
 ```
 [2020-06-06 10:46:51 +0200][4980] [INFO] Starting gunicorn 20.0.4
@@ -53,18 +61,28 @@ unzip ngrok-stable-linux-amd64.zip
 
 In order to see the results of the tracking, go to [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
+Within the Katacoda environment, it's slightly different
+
 ```
-Render port 8500: https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/
+https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/
+```{{copy}}
+
+Alternatively, tunnel to a public address. For this, let's install `ngrok` in a new terminal window:
+
 ```
+curl https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -o ngrok-stable-linux-amd64.zip
+unzip ngrok-stable-linux-amd64.zip
+```{{execute T2}}
+
+```
+./ngrok http 5000
+```{{execute}}
+
 
 ```python
-
-
-
 import mlflow
 from mlflow.tracking import MlflowClient
 
-# MLFLOW_URI = "http://35.210.166.253:5000"
 # MLFLOW_URI = "http://127.0.0.1:5000"
 MLFLOW_URI = "http://f510c1729635.ngrok.io"
 

@@ -11,7 +11,6 @@ Exemple avec le dataset des frais de taxis de Kaggle (taxi-fare kaggle dataset)
 ipython
 ```{{execute}}
 
-
 ### Importer les données
 
 ```

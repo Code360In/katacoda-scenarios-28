@@ -11,24 +11,13 @@
     "steps": [
       {
         "title": "MlFlow Iterations",
-        "text": "step1.md"
+        "text": "step/step1.md"
       },
       {
         "title": "NA",
-        "text": "step2.md"
-      },
-      {
-        "title": "NA",
-        "text": "step3.md"
-      },
-      {
-        "title": "NA",
-        "text": "step4.md"
-      },
-      {
-        "title": "NA",
-        "text": "step5.md"
+        "text": "step/step2.md"
       }
+
     ],
     "finish": {
       "text": "finish.md"
