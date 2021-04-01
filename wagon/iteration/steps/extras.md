@@ -76,12 +76,12 @@ touch sharedhost.py
 python sharedhost.py
 ```{{execute}}
 
-MLflow server: [https://mlflow.lewagon.co/](https://mlflow.lewagon.co/)
+MLflow server: [ngrok](ngrok)
 
 
 ```python
 
-mlflow.set_tracking_uri("https://mlflow.lewagon.co/")
+mlflow.set_tracking_uri("{ngrokurl}")
 EXPERIMENT_NAME = "[BE] [Belgium] [widged] TaxifareModel_0.01"
 mlflow_client= MlflowClient()
 

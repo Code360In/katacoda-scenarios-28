@@ -16,6 +16,10 @@
       {
         "title": "Class Trainer",
         "text": "steps/step2.md"
+      },
+      {
+        "title": "Memoization",
+        "text": "steps/step3.md"
       }
 
     ],
