@@ -6,8 +6,7 @@ If there is later another call to the function with the exact same paramters, it
 If any parameter is different, it will run the function and persist the association between function with parameters and result
 
 ```
-touch memoized.py
-python memoized.py
+ipython
 ```{{execute}}
 
 
