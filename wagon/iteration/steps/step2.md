@@ -1,118 +1,241 @@
-Install Conda
+
+Simply creating the class doing nothing for now.
 
 ```
-wget -q https://repo.continuum.io/miniconda/Miniconda3-4.5.1-Linux-x86_64.sh -O /tmp/miniconda.sh && \
-    bash /tmp/miniconda.sh -f -b -p /opt/conda && \
-    /opt/conda/bin/conda install --yes python=3.6 pip=9.0.3 && \
-    rm /tmp/miniconda.sh
-
-export PATH=/opt/conda/bin:$PATH
-```{{copy}}
-
-Install Python Libraries
-
-```
-pip install mlflow==1.7.2
-pip install pandas==1.0.2
-pip install keras==2.3.1
-pip install tensorflow==1.14.0
-pip install scikit-learn==0.22.2.post1
-```{{copy}}
-
-Install Java (for use with Spark)
-
-```
-apt-get update \
-  && apt-get install -y software-properties-common \
-  && add-apt-repository -y ppa:openjdk-r/ppa \
-  && apt-get update \
-  && apt-get install -y --no-install-recommends openjdk-8-jdk openjdk-8-jre-headless \
-  && apt-get install -y --no-install-recommends apt-transport-https
-
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-
-export PATH=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin:$PATH
-```{{copy}}
-
-Start the Server
-```
-export MLFLOW_TRACKING_URI=file:///root/mlflow
-
-nohup mlflow server --host 0.0.0.0 \
-                    --port 5000 \
-                    --backend-store-uri file:///root/mlflow &
-
-```{{copy}}
-
-Simple python script
-
-```
-import os
-from random import random, randint
-
-import mlflow
-from mlflow import log_metric, log_param, log_artifacts
-
-tracking_uri='file:///root/mlflow'
-mlflow.set_tracking_uri(tracking_uri)
-
-experiment_name = 'hello_world'
-mlflow.set_experiment(experiment_name)
-
-if __name__ == "__main__":
-    print("Running mlflow_tracking.py")
-
-    log_param("hyperparam1", randint(0, 100))
-
-    log_metric("accuracy", random())
-    log_metric("accuracy", random() + 1)
-    log_metric("accuracy", random() + 2)
-
-    if not os.path.exists("outputs"):
-        os.makedirs("outputs")
-    with open("outputs/model.txt", "w") as f:
-        f.write("hello world!")
-
-    log_artifacts("outputs")
-```{{copy}}
-
-```
-cd ~
-
-git clone [https://github.com/PipelineAI/katacoda-notebooks](https://github.com/PipelineAI/katacoda-notebooks)
-
-cd ~/katacoda-notebooks/06_mlflow_install/
-
-python mlflow_tracking.py
-```{{copy}}
-
-
-
-## Prepare the environment
-
-```
-# train 0
-clear
-mkdir mlflow && cd mlflow
-touch mlflow.py
-python mlflow.py
+touch trainer.py
+python trainer.py
 ```{{execute}}
 
-## Fetch data from the taxi-fare kaggle dataset
 
-```
-# mlflow 1
-from  mlflow.tracking import MlflowClient
-EXPERIMENT_NAME = "model_experiment"
-client = MlflowClient()
-experiment_id = client.create_experiment(EXPERIMENT_NAME)
+```python
+class Trainer(object):
 
-for model in ["linear", "Randomforest"]:
-    run = client.create_run(experiment_id)
-    client.log_metric(run.info.run_id, "rmse", 4.5)
-    client.log_param(run.info.run_id, "model", model)
+    def __init__(self, X, y, **kwargs):
+        self.pipeline = None
+        self.kwargs = kwargs
+        self.dist = self.kwargs.get("distance_type", "euclidian")
+        self.X_train, self.X_val, self.y_train, self.y_val = \
+            train_test_split(X, y, test_size=0.15)
+        self.nrows = self.X_train.shape[0]
+
+    def get_estimator(self):
+        estimator = self.kwargs.get("estimator", "RandomForest")
+        if estimator == "RandomForest":
+            model = RandomForestRegressor()
+        return model
+
+    def set_pipeline(self):
+        # Define feature engineering pipeline blocks here
+        pipe_tf = make_pipeline(TimeEncoder(),
+                                OneHotEncoder())
+        pipe_dist = make_pipeline(DistTransformer(distance_type=self.dist),
+                                      StandardScaler())
+        pipe_d2center = make_pipeline(DistToCenter(),
+                                      StandardScaler())
+
+        # Define default feature engineering blocs
+        distance_columns = list(DIST_ARGS.values())
+        feateng_blocks = [
+            ('distance', pipe_dist, distance_columns),
+            ('time_features', pipe_tf, ['pickup_datetime']),
+            ('distance_to_center', pipe_d2center, distance_columns)]
+
+        features_encoder = ColumnTransformer(feateng_blocks,
+                                             n_jobs=None,
+                                             remainder="drop")
+
+        regressor = self.get_estimator()
+
+        self.pipeline = Pipeline(steps=[
+                    ('features', features_encoder),
+                    ('rgs', regressor)])
+
+    def train(self):
+        self.set_pipeline()
+        self.pipeline.fit(self.X_train, self.y_train)
+
+    def evaluate(self):
+        rmse_train = self.compute_rmse(self.X_train, self.y_train)
+        rmse_val = self.compute_rmse(self.X_val, self.y_val, show=True)
+        output_print = f"rmse train: {rmse_train} || rmse val: {rmse_val}"
+        print(colored(output_print, "blue"))
+
+    def compute_rmse(self, X_test, y_test, show=False):
+        y_pred = self.pipeline.predict(X_test)
+        rmse = compute_rmse(y_pred, y_test)
+        return round(rmse, 3)
+
+    def save_model(self):
+        """Save the model into a .joblib format"""
+        joblib.dump(self.pipeline, 'model.joblib')
+        print(colored("model.joblib saved locally", "green"))
+
+    ## Params
+    params = dict(
+        estimator='RandomForest',
+        distance_type='haversine',
+    )
+
+    trainer = Trainer(X, y, **params)
+    trainer.train()
+    trainer.evaluate()
+    trainer.save_model()
 
 ```{{copy}}
 
+# Memoization
 
+Persist information about the result for a (@memoized) function call and its parameters.
+If there is later another call to the function with the exact same paramters, it will return the stored result without attempting to run the function again.
+
+If any parameter is different, it will run the function and persist the association between function with parameters and result
+
+```
+touch memoized.py
+python memoized.py
+```{{execute}}
+
+
+```python
+pip install memoized_property
+```{{execute}}
+
+## Non memoized car
+
+```
+
+from memoized_property import memoized_property
+from random import random
+
+class Car():
+    def get_random_value(self):
+        return random()
+
+print('----NOT memoized----')
+car = Car()
+print('non memoized calls differ:')
+print(car.get_random_value())
+print(car.get_random_value())
+
+car2 = Car()
+print('non memoized calls differ:')
+print(car2.get_random_value())
+print(car2.get_random_value())
+
+```{{copy}}
+
+## Memoized car
+
+
+```
+
+from memoized_property import memoized_property
+from random import random
+
+
+class MemoizedCar():
+    @memoized_property
+    def get_random_value(self):
+        return random()
+
+print('----memoized----')
+car = MemoizedCar()
+print('memoized property return the same value:')
+print(car.get_random_value)
+print(car.get_random_value)
+
+car2 = MemoizedCar()
+print('memoized property return the same value:')
+print(car2.get_random_value)
+print(car2.get_random_value)
+
+```{{copy}}
+
+## Manually  persisting value across calls
+
+Singleton Pattern
+
+```
+class SingletonCar():
+
+    def __init__(self):
+        self.random = None
+
+    def get_random_value(self):
+        #if not hasattr(self, 'random'):
+        if self.random == None:
+            self.random = random()
+        return self.random
+
+print('----singleton pattern----')
+car = SingletonCar()
+print('all calls return the same value:')
+print(car.get_random_value())
+print(car.get_random_value())
+
+car2 = SingletonCar()
+print('all calls return the same value:')
+print(car2.get_random_value())
+print(car2.get_random_value())
+```{{copy}}
+
+
+## All together! Memoized trainer
+
+```
+touch memoized_trainer.py
+python memoized_trainer.py
+```{{execute}}
+
+
+```
+from memoized_property import memoized_property
+
+import mlflow
+from mlflow.tracking import MlflowClient
+
+class Trainer():
+
+    MLFLOW_URI = "https://mlflow.lewagon.co/"
+
+    def __init__(self, experiment_name):
+        self.experiment_name = experiment_name
+
+    @memoized_property
+    def mlflow_client(self):
+        mlflow.set_tracking_uri(self.MLFLOW_URI)
+        return MlflowClient()
+
+    @memoized_property
+    def mlflow_experiment_id(self):
+        try:
+            return self.mlflow_client \
+                .create_experiment(self.experiment_name)
+        except BaseException:
+            return self.mlflow_client \
+                .get_experiment_by_name(self.experiment_name).experiment_id
+
+    def mlflow_create_run(self):
+        self.mlflow_run = self.mlflow_client \
+            .create_run(self.mlflow_experiment_id)
+
+    def mlflow_log_param(self, key, value):
+        self.mlflow_client \
+            .log_param(self.mlflow_run.info.run_id, key, value)
+
+    def mlflow_log_metric(self, key, value):
+        self.mlflow_client \
+            .log_metric(self.mlflow_run.info.run_id, key, value)
+
+    def train(self):
+
+        for model in ["linear", "Randomforest"]:
+            self.mlflow_create_run()
+            self.mlflow_log_metric("rmse", 4.5)
+            self.mlflow_log_param("model", model)
+
+trainer = Trainer("[BE][bruxelles] [widged] DE D3 model_experiment 6")
+trainer.train()
+
+```{{copy}}
 
