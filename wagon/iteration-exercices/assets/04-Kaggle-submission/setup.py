@@ -15,8 +15,7 @@ REQUIRED_PACKAGES = [
     'xgboost==1.1.1',
     'memoized-property==1.0.3',
     'scipy== 1.2.2',
-    'category_encoders==2.2.2',
-    's3fs']
+    'category_encoders==2.2.2']
 
 setup(
     name='TaxiFareModel',

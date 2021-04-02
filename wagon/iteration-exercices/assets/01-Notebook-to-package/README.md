@@ -9,13 +9,11 @@ We have created for you the following structure
 ```bash
 * TaxiFareModel
     * __init__.py     -> to make it a python package
-    * data.py         -> functions to get and clean data 
-    * encoders.py     -> your custom encoders and transformers for our Pipeline  
+    * data.py         -> functions to get and clean data
+    * encoders.py     -> your custom encoders and transformers for our Pipeline
     * utils.py        -> utility functions
     * trainer.py      -> containing main class that will run our Pipeline
 ```
-This exercice loads the train data from an Amazon AWS S3 bucket, in order to access it
-- `pip install s3fs`
 
 ## data.py
 Inspect functions `get_data` and `clean_df` that are already given to you.

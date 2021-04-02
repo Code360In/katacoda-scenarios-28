@@ -2,7 +2,7 @@ import pandas as pd
 
 from TaxiFareModel.utils import simple_time_tracker
 
-AWS_BUCKET_PATH = "https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv"
+REMOTE_PATH = "https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv"
 LOCAL_PATH = "your_localpath"
 
 DIST_ARGS = dict(start_lat="pickup_latitude",
@@ -18,7 +18,7 @@ def get_data(nrows=10000, local=False, **kwargs):
     if local:
         path = LOCAL_PATH
     else:
-        path = AWS_BUCKET_PATH
+        path = REMOTE_PATH
     df = pd.read_csv(path, nrows=nrows)
     return df
 
