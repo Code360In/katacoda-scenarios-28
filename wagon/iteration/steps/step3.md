@@ -34,6 +34,8 @@ car = Car()
 print('non memoized calls differ:')
 print(car.get_random_value())
 print(car.get_random_value())
+print(car.get_random_value())
+print(car.get_random_value())
 ```{{copy}}
 
 Let's create a second instance of the class
@@ -44,6 +46,8 @@ car2 = Car()
 
 ```
 print('non memoized calls differ:')
+print(car2.get_random_value())
+print(car2.get_random_value())
 print(car2.get_random_value())
 print(car2.get_random_value())
 ```{{copy}}
