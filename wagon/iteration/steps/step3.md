@@ -176,9 +176,12 @@ class Trainer():
         self.mlflow_create_run()
         self.mlflow_log_metric("rmse", 4.5)
         self.mlflow_log_param("model", model)
+```{{copy}}
 
+Now let's run an experiment
+
+```
 trainer = Trainer("[BE][bruxelles] DE D3 model_experiment 6")
 trainer.train()
-
 ```{{copy}}
 
