@@ -96,25 +96,26 @@ Singleton Pattern
 ```
 class SingletonCar():
 
-    def __init__(self):
-        self.random = None
+  def __init__(self):
+    self.get_random_value = None
 
-    def get_random_value(self):
-        #if not hasattr(self, 'random'):
-        if self.random == None:
-            self.random = random()
-        return self.random
+  @property
+  def get_random_value(self):
+    #if not hasattr(self, 'random'):
+    if self.get_random_value == None:
+      self.get_random_value = random()
+    return self.get_random_value
 
 print('----singleton pattern----')
 car = SingletonCar()
 print('all calls return the same value:')
-print(car.get_random_value())
-print(car.get_random_value())
+print(car.get_random_value)
+print(car.get_random_value)
 
 car2 = SingletonCar()
 print('all calls return the same value:')
-print(car2.get_random_value())
-print(car2.get_random_value())
+print(car2.get_random_value)
+print(car2.get_random_value)
 ```{{copy}}
 
 
