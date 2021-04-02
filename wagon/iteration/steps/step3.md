@@ -23,7 +23,10 @@ from random import random
 class Car():
     def get_random_value(self):
         return random()
+```{{copy}}
 
+Créons une première instance de la classe
+```
 car = Car()
 ```{{copy}}
 
@@ -32,6 +35,8 @@ print('non memoized calls differ:')
 print(car.get_random_value())
 print(car.get_random_value())
 ```{{copy}}
+
+Créons une seconde instance de la classe
 
 ```
 car2 = Car()
