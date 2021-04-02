@@ -25,7 +25,7 @@ class Car():
         return random()
 ```{{copy}}
 
-Créons une première instance de la classe
+Let's create a first instance of the class
 ```
 car = Car()
 ```{{copy}}
@@ -36,7 +36,7 @@ print(car.get_random_value())
 print(car.get_random_value())
 ```{{copy}}
 
-Créons une seconde instance de la classe
+Let's create a second instance of the class
 
 ```
 car2 = Car()
