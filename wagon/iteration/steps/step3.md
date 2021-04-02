@@ -24,7 +24,6 @@ class Car():
     def get_random_value(self):
         return random()
 
-print('----NOT memoized----')
 car = Car()
 ```{{copy}}
 
