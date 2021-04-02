@@ -121,6 +121,11 @@ print(car2.get_random_value())
 ## All together! Memoized trainer
 
 ```
+export MLFLOW_URI={ngrok-url}
+```{{copy}}
+
+
+```
 ipython
 ```{{execute}}
 
@@ -128,12 +133,14 @@ ipython
 ```
 from memoized_property import memoized_property
 
+import os
 import mlflow
 from mlflow.tracking import MlflowClient
 
 class Trainer():
 
-  MLFLOW_URI = "https://user:PASSWORD@mlflow-dev.herokuapp.com/"
+  MLFLOW_URI = os.environ['MLFLOW_URI']
+  # https://user:PASSWORD@mlflow-dev.herokuapp.com/ for an example
 
   def __init__(self, experiment_name):
     self.experiment_name = experiment_name
