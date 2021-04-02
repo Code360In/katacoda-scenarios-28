@@ -21,7 +21,12 @@
     {
       "course_id": "iteration",
       "title": "iteration",
-      "description": "iteration"
+      "description": "Iteration"
+    },
+    {
+      "course_id": "iteration-exercices",
+      "title": "Iteration Exercices",
+      "description": "Iteration Exercices"
     }
   ]
 }
