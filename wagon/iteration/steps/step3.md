@@ -56,7 +56,6 @@ print(car2.get_random_value())
 
 
 ```
-
 from memoized_property import memoized_property
 from random import random
 
@@ -65,15 +64,26 @@ class MemoizedCar():
     @memoized_property
     def get_random_value(self):
         return random()
+```{{copy}}
 
-print('----memoized----')
+Let's create a first instance of the class
+
+```
 car = MemoizedCar()
 print('memoized property return the same value:')
 print(car.get_random_value)
 print(car.get_random_value)
+print(car.get_random_value)
+print(car.get_random_value)
+```{{copy}}
 
+Let's create a second instance of the class
+
+```
 car2 = MemoizedCar()
 print('memoized property return the same value:')
+print(car2.get_random_value)
+print(car2.get_random_value)
 print(car2.get_random_value)
 print(car2.get_random_value)
 
