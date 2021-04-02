@@ -17,7 +17,6 @@ pip install memoized_property
 ## Non memoized car
 
 ```
-
 from memoized_property import memoized_property
 from random import random
 
@@ -27,15 +26,22 @@ class Car():
 
 print('----NOT memoized----')
 car = Car()
+```{{copy}}
+
+```
 print('non memoized calls differ:')
 print(car.get_random_value())
 print(car.get_random_value())
+```{{copy}}
 
+```
 car2 = Car()
+```{{copy}}
+
+```
 print('non memoized calls differ:')
 print(car2.get_random_value())
 print(car2.get_random_value())
-
 ```{{copy}}
 
 ## Memoized car
