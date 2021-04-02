@@ -184,3 +184,57 @@ trainer = Trainer("[BE][bruxelles] DE D3 model_experiment 6", MLFLOW_URI)
 trainer.train()
 ```{{copy}}
 
+## Better way to write code
+
+```
+from memoized_property import memoized_property
+
+import os
+import mlflow
+from mlflow.tracking import MlflowClient
+
+class MlFlowTracker():
+
+  def __init__(self, experiment_name, mlflow_uri):
+    self.experiment_name = experiment_name
+    self.mlflow_uri = mlflow_uri
+
+  @memoized_property
+  def mlflow_client(self):
+    mlflow.set_tracking_uri(self.mlflow_uri)
+    return MlflowClient()
+
+  @memoized_property
+  def mlflow_experiment_id(self):
+    try:
+        return self.mlflow_client \
+            .create_experiment(self.experiment_name)
+    except BaseException:
+        return self.mlflow_client \
+            .get_experiment_by_name(self.experiment_name).experiment_id
+
+  def create_run(self):
+    self.mlflow_run = self.mlflow_client \
+          .create_run(self.mlflow_experiment_id)
+
+  def log_param(self, key, value):
+    self.mlflow_client \
+          .log_param(self.mlflow_run.info.run_id, key, value)
+
+  def log_metric(self, key, value):
+    self.mlflow_client \
+          .log_metric(self.mlflow_run.info.run_id, key, value)
+```{{copy}}
+
+```
+class Trainer():
+
+  def __init__(self, experiment_name, mlflow_uri):
+    self.mlf_tracker = MlFlowTracker(experiment_name, mlflow_uri)
+
+  def train(self):
+    for model in ["linear", "Randomforest"]:
+        self.mlf_tracker.create_run()
+        self.mlf_tracker.log_metric("rmse", 4.5)
+        self.mlf_tracker.log_param("model", model)
+```{{copy}}
