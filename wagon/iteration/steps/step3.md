@@ -139,15 +139,13 @@ from mlflow.tracking import MlflowClient
 
 class Trainer():
 
-  MLFLOW_URI = os.environ['MLFLOW_URI']
-  # https://user:PASSWORD@mlflow-dev.herokuapp.com/ for an example
-
-  def __init__(self, experiment_name):
+  def __init__(self, experiment_name, mlflow_uri):
     self.experiment_name = experiment_name
+    self.mlflow_uri = mlflow_uri
 
   @memoized_property
   def mlflow_client(self):
-    mlflow.set_tracking_uri(self.MLFLOW_URI)
+    mlflow.set_tracking_uri(self.mlflow_uri)
     return MlflowClient()
 
   @memoized_property
@@ -181,7 +179,8 @@ class Trainer():
 Now let's run an experiment
 
 ```
-trainer = Trainer("[BE][bruxelles] DE D3 model_experiment 6")
+MLFLOW_URI = "https://user:PASSWORD@mlflow-dev.herokuapp.com/"
+trainer = Trainer("[BE][bruxelles] DE D3 model_experiment 6", MLFLOW_URI)
 trainer.train()
 ```{{copy}}
 
