@@ -23,7 +23,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from termcolor import colored
 from xgboost import XGBRegressor
 
-MLFLOW_URI = "http://35.210.166.253:5000"
+MLFLOW_URI = "{mlflow-server-url-provided-at-lecture-time}"
 
 
 class Trainer(object):

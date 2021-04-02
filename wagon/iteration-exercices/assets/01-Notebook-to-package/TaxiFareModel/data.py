@@ -1,7 +1,7 @@
 import pandas as pd
 from TaxiFareModel.utils import simple_time_tracker
 
-AWS_BUCKET_PATH = "s3://wagon-public-datasets/taxi-fare-train.csv"
+CSV = "https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv"
 
 DIST_ARGS = dict(start_lat="pickup_latitude",
                  start_lon="pickup_longitude",
@@ -12,7 +12,7 @@ DIST_ARGS = dict(start_lat="pickup_latitude",
 @simple_time_tracker
 def get_data(nrows=10_000):
     """method to get the training data (or a portion of it) from google cloud bucket"""
-    df = pd.read_csv(AWS_BUCKET_PATH, nrows=nrows)
+    df = pd.read_csv(CSV, nrows=nrows)
     return df
 
 
