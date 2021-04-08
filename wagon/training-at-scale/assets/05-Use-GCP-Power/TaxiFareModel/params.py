@@ -9,7 +9,7 @@
 
 ### GCP Storage - - - - - - - - - - - - - - - - - - - - - -
 
-BUCKET_NAME = 'wagon-ml-bizot-27'
+BUCKET_NAME = 'ynov-ml-bizot-27'
 
 ##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
 
