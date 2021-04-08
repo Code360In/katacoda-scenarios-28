@@ -1,4 +1,4 @@
-# Data Pipelines
+# Training At Scales
 
 ## Prerequisites that were installed
 
