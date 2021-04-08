@@ -1,10 +1,10 @@
-# Objective
+## Objective
 
 To get familiar with Google AI Platform, we will first deploy and train a simple model for the TaxiFare Challenge.
 
 This model will be a linear model **`fare_amount ~ C * distance`**
 
-# Reminders
+## Reminders
 
 ## Packaging
 Here a quick reminder of our packaging notions from last monday, to package python code, nothing more than:
