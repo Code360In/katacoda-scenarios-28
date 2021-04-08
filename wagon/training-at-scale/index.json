@@ -1,0 +1,37 @@
+{
+  "title": "Pipelines Recap",
+  "description": "Lesson 2  of Data Pipelines",
+  "difficulty": "Beginner",
+  "time": "1 hour",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "steps": [
+      {
+        "title": "Exercices",
+        "text": "recap.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+          {
+          "file": "*",
+          "target": "~/",
+          "chmod": "+r"
+          }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "python:3.8"
+  }
+}

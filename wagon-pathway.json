@@ -27,6 +27,11 @@
       "course_id": "iteration-exercices",
       "title": "Iteration Exercices",
       "description": "Iteration Exercices"
+    },
+    {
+      "course_id": "training-at-scale",
+      "title": "Training at scale",
+      "description": "Training at scale Exercices"
     }
   ]
 }
