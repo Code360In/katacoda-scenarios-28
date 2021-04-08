@@ -14,23 +14,23 @@
         "text": "recap.md"
       },
       {
-        "title": "01",
+        "title": "01 - GCP Setup",
         "text": "01.md"
       },
       {
-        "title": "02",
+        "title": "02 -  Submit Train",
         "text": "02.md"
       },
       {
-        "title": "03",
+        "title": "03 - Train Taxi Fare",
         "text": "03.md"
       },
       {
-        "title": "04",
+        "title": "04 - Scaling",
         "text": "04.md"
       },
       {
-        "title": "05",
+        "title": "05 - Use-GCP-Power",
         "text": "05.md"
       }
     ],
