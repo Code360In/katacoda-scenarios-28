@@ -32,6 +32,12 @@
       "course_id": "training-at-scale",
       "title": "Training at scale",
       "description": "Training at scale Exercices"
+    },
+        {
+      "course_id": "predict",
+      "title": "Predict",
+      "description": "Predict Exercices"
     }
+
   ]
 }
