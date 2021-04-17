@@ -1,5 +1,5 @@
-PROJECT_ID=ynov-taxifare
-BUCKET_NAME=ynov-ml-myhandle
+PROJECT_ID=wagon-taxifare
+BUCKET_NAME=wagon-ds-myhandle
 
 # ----------------------------------
 #         LOCAL SET UP

@@ -46,7 +46,7 @@ So let's only open a portion of it.
 💡 NB: here we will read portion of a file **directly from an url**, texactly the same can be done with local file
 
 ```
-url = 'https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv'
+url = 'https://clients.widged.com/wagon/data/taxi-fare-train.csv'
 df = pd.read_csv(url, nrows=1000)
 ```{{copy}}
 

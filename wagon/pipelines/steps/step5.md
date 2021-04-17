@@ -51,7 +51,7 @@ custom_pipe = Pipeline(steps=[
 ```{{copy}}
 
 ```
-df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv', nrows=100 )
+df = pd.read_csv('https://clients.widged.com/wagon/data/taxi-fare-train.csv', nrows=100 )
 X = df.drop('fare_amount', axis=1)
 y = df['fare_amount']
 ```{{copy}}

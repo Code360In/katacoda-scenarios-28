@@ -5,11 +5,11 @@
 
 ### GCP Project - - - - - - - - - - - - - - - - - - - - - -
 
-PROJECT_ID = "ynov-taxifare"
+PROJECT_ID = "wagon-taxifare"
 
 ### GCP Storage - - - - - - - - - - - - - - - - - - - - - -
 
-BUCKET_NAME = 'ynov-ml-myhandle'
+BUCKET_NAME = 'wagon-ds-myhandle'
 
 ##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
 

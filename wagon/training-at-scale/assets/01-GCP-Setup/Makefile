@@ -23,5 +23,5 @@ create_bucket:
 	-@gsutil mb -l ${REGION} -p ${PROJECT_ID} gs://${BUCKET_NAME}
 
 upload_data:
-	# -@gsutil cp train_1k.csv gs://ynov-ml-my-bucket-name/data/train_1k.csv
+	# -@gsutil cp train_1k.csv gs://wagon-ds-my-bucket-name/data/train_1k.csv
 	-@gsutil cp ${LOCAL_PATH} gs://${BUCKET_NAME}/${BUCKET_FOLDER}/${UPLOADED_FILE_NAME}

@@ -41,7 +41,7 @@ Repartons des données taxifare
 
 ```
 import pandas as pd
-df = pd.read_csv('https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv', nrows=100 )
+df = pd.read_csv('https://clients.widged.com/wagon/data/taxi-fare-train.csv', nrows=100 )
 df.head().T
 ```{{copy}}
 

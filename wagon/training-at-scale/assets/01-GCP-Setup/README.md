@@ -10,7 +10,7 @@ Beyond training models, you will see how you can make your models available to t
 ## Setup Project
 - Go to [Google Cloud](https://console.cloud.google.com/) and create an account if you do not already have one.
 - In the Cloud Console, on the project selector page, select or create a Cloud project. You can name it `YNOV AICloud` for example
-- Notice the `ID` automatically created for the project. If you used the suggestion for the project name, it should look like `ynov-aicloud-123456`. This `PROJECT_ID` will be refered to later and used all over the code in order to identify the GCP project your code will be interacting with. You will be able to access it anytime in the project list (click to zoom):
+- Notice the `ID` automatically created for the project. If you used the suggestion for the project name, it should look like `wagon-ds-123456`. This `PROJECT_ID` will be refered to later and used all over the code in order to identify the GCP project your code will be interacting with. You will be able to access it anytime in the project list (click to zoom):
 
 <img src="gcp-show-project-id.png" width="150" alt="finding your PROJECT_ID in GCP">
 
@@ -132,7 +132,7 @@ For now, lets play with the `Storage` `buckets` in order to make sure that every
 
 You will need a bucket to store data, code and trained models.
 
-**IMPORTANT**: Bucket names must be **globally unique**, please respect convention `ynov-ml-[YOUR_LAST_NAME]-XX`
+**IMPORTANT**: Bucket names must be **globally unique**, please respect convention `wagon-ml-[YOUR_LAST_NAME]-XX`
 
 As the `PROJECT_ID` is used in your code in order to identify your project, the `BUCKET_NAME` will be used in your code to identify this online container where you will store your data and your models.
 
@@ -149,8 +149,8 @@ There are 2 ways to create bucket and upload data:
     - Open `Makefile` and complete following env variable :
 ```bash
 LOCAL_PATH=~/data/train.csv             # Put your local path to the training data
-PROJECT_ID=ynov-aicloud-111222333     # Project ID and not Project name
-BUCKET_NAME=ynov-ml-bizot-11           # Respect naming defined above
+PROJECT_ID=wagon-ds-111222333     # Project ID and not Project name
+BUCKET_NAME=wagon-ds-bizot-11           # Respect naming defined above
 ```
 
 Use predefined bash commands from Makefile.

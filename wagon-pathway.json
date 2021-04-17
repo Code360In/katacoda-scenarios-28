@@ -1,5 +1,5 @@
 {
-  "title": "YNOV",
+  "title": "Wagon",
   "description": "...",
   "icon": "fa-katacoda",
   "courses": [
@@ -33,11 +33,10 @@
       "title": "Training at scale",
       "description": "Training at scale Exercices"
     },
-        {
+    {
       "course_id": "predict-exercices",
       "title": "Predict",
       "description": "Predict Exercices"
     }
-
   ]
 }

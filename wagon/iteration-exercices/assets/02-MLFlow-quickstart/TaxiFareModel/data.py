@@ -1,7 +1,7 @@
 import pandas as pd
 from TaxiFareModel.utils import simple_time_tracker
 
-REMOTE_PATH = "https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv"
+REMOTE_PATH = "https://clients.widged.com/wagon/data/taxi-fare-train.csv"
 
 DIST_ARGS = dict(start_lat="pickup_latitude",
                  start_lon="pickup_longitude",

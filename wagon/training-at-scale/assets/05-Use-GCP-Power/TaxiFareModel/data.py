@@ -21,7 +21,7 @@ def get_data(nrows=10000, local=False, optimize=False, **kwargs):
         path = "data/data_data_10Mill.csv"
     else:
         #path = "gs://{}/{}".format(BUCKET_NAME, BUCKET_TRAIN_DATA_PATH)
-        path = "https://clients.widged.com/ynov/ai-and-cloud/d8/taxi-fare-train.csv"
+        path = "https://clients.widged.com/wagon/data/taxi-fare-train.csv"
     if optimize:
         cols = infer_dtypes(path)
         cols = {k: v for k, v in cols.items() if "latitude" not in k and "longitude" not in k}
