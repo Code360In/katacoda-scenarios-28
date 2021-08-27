@@ -1,8 +1,3 @@
 #!/bin/bash
-# do some magic
-clear
-pip install s3fs
-pip install pandas
-pip install sklearn
-sudo apt-get install tree
+# Nothing to install, yarn 1.22.5 is there by default
 clear
