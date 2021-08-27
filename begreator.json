@@ -1,0 +1,22 @@
+{
+  "title": "BeGreator",
+  "description": "...",
+  "icon": "fa-katacoda",
+  "courses": [
+    {
+      "course_id": "react-app-build",
+      "title": "react-app-build",
+      "description": "react-app-build"
+    },
+    {
+      "course_id": "job-ad-scraping",
+      "title": "job-ad-scraping",
+      "description": "job-ad-scraping"
+    },
+    {
+      "course_id": "skill-matching",
+      "title": "skill-matching",
+      "description": "skill-matching"
+    }
+  ]
+}

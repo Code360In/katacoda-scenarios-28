@@ -1,0 +1,63 @@
+{
+  "title": "React App Build",
+  "description": "Building the app",
+  "difficulty": "Beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Buil",
+        "text": "steps/01-build"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "set-env.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "*",
+          "target": "~/sandbox",
+          "chmod": "+r"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": false,
+    "showdashboard": true,
+    "delayToSaveFileAfterStopTypingMilliseconds": 2000,
+    "autoFormatEnable": false,
+    "dashboards": [
+      {
+        "name": "Web Application",
+        "port": 3000
+      },
+      {
+        "name": "1-HelloBrussels",
+        "href": "https://repl.it/@widged/1-HelloBrussels"
+      }
+    ],
+    "uilayout": "editor-terminal",
+    "uisettings": "javascript",
+    "exclusionPatterns": [
+      "._*",
+      "package.json",
+      "package-lock.json",
+      "node_modules",
+      "public*",
+      "serviceWorker*"
+    ],
+    "hideHiddenFiles": true,
+    "uieditorpath": "sandbox",
+    "uimessage1": "welcome!"
+  },
+  "backend": {
+    "imageid": "ubuntu1804",
+    "port": 3000
+  }
+}
