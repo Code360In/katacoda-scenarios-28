@@ -7,7 +7,7 @@
     "steps": [
       {
         "title": "Buil",
-        "text": "steps/01-build"
+        "text": "steps/01-build.md"
       }
     ],
     "intro": {
